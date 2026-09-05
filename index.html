@@ -85,45 +85,46 @@ body.motion-off .press-theatre{display:none}
 </style>
 </head>
 <body>
-<a class="skip" href="#workbench">跳到改写工具</a>
+<a class="skip" href="#workbench" data-i18n="skip">跳到改写工具</a>
 <div class="page">
 <header class="mast">
-<a class="brand" href="#top" aria-label="语用印坊首页"><span class="brand-seal" aria-hidden="true">微<br>言</span><span><strong>语用印坊</strong><small>PRAGMATIC REPHRASER</small></span></a>
-<nav class="topnav" aria-label="主导航"><a href="#workbench">表达实验室</a><button class="nav-btn" id="motionToggle" type="button" aria-pressed="true">动效 开</button><span class="modechip" id="modeChip"><span id="modeText">离线演示</span></span><button class="gear" id="gearBtn" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M4 7h16M4 17h16"/><circle cx="9" cy="7" r="3" fill="var(--paper)"/><circle cx="15" cy="17" r="3" fill="var(--paper)"/></svg>配置 AI</button></nav>
+<a class="brand" href="#top" aria-label="语用印坊首页" data-i18n-attr="aria-label:brandAria"><span class="brand-seal" id="brandSeal" aria-hidden="true">微<br>言</span><span><strong data-i18n="brandTitle">语用印坊</strong><small>PRAGMATIC REPHRASER</small></span></a>
+<nav class="topnav" aria-label="主导航"><a href="#workbench" data-i18n="navLab">表达实验室</a><button class="nav-btn lang-btn" id="langToggle" type="button" aria-label="Switch to English">EN</button>
+<button class="nav-btn" id="motionToggle" type="button" aria-pressed="true" data-i18n="motionOn">动效 开</button><span class="modechip" id="modeChip" data-i18n-attr="aria-label:modeChipAria"><span id="modeText">离线演示</span></span><button class="gear" id="gearBtn" type="button" data-i18n-attr="aria-label:gearAria"><span data-i18n="configAI">配置 AI</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M4 7h16M4 17h16"/><circle cx="9" cy="7" r="3" fill="var(--paper)"/><circle cx="15" cy="17" r="3" fill="var(--paper)"/></svg>配置 AI</button></nav>
 </header>
 <main id="top">
 <section class="hero" aria-labelledby="heroTitle">
-<div class="hero-copy"><div class="eyebrow">The art of saying it differently</div><h1 id="heroTitle">同一句话，<br>不同的<span class="accent">分寸。</span></h1><p class="intro">直言、礼貌，或留一点余地。<br>将一个意图展开为五种表达，看看<b>语言如何改变人与人之间的距离</b>。</p><div class="hero-actions"><a href="#workbench" class="primary">开始改写<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a><button class="text-action" id="demoBtn" type="button"><span class="play" aria-hidden="true">▶</span>看一次压印演示</button></div><div class="hero-foot">01 INTENTION &nbsp; / &nbsp; 05 EXPRESSIONS &nbsp; / &nbsp; 中文语用实验</div></div>
+<div class="hero-copy"><div class="eyebrow" data-i18n="eyebrow">The art of saying it differently</div><h1 id="heroTitle" aria-label=""><span data-i18n="heroH1a">同一句话，</span><br><span data-i18n="heroH1b">不同的</span><span class="accent" data-i18n="heroH1c">分寸。</span></h1><p class="intro"><span data-i18n="heroIntro1">直言、礼貌，或留一点余地。</span><br><span data-i18n="heroIntro2">将一个意图展开为五种表达，看看</span><b data-i18n="heroIntro3">语言如何改变人与人之间的距离</b>。</p><div class="hero-actions"><a href="#workbench" class="primary"><span data-i18n="ctaWork">开始改写</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a><button class="text-action" id="demoBtn" type="button"><span class="play" aria-hidden="true">▶</span><span data-i18n="ctaDemo">看一次压印演示</span></button></div><div class="hero-foot" data-i18n="heroFoot">01 INTENTION &nbsp; / &nbsp; 05 EXPRESSIONS &nbsp; / &nbsp; 中文语用实验</div></div>
 <div class="specimen" id="specimen" aria-label="五种表达的纸页预览">
-<span class="specimen-label">TYPE STUDY · 001</span><div class="fan-axis" id="fanAxis">
-<div class="fan-pages"><div class="fan-page" data-tone="direct" style="--x:-112px;--y:29px;--r:-22deg;--z:1;--tone:#666253" aria-hidden="true"><div class="leaf-enter"><div class="leaf-reveal"><div class="leaf-surface"><span class="leaf-top"><span>01</span><span>DIRECT</span></span><span class="leaf-kind">直接 · 直陈意图</span><span class="leaf-copy">把窗户<br>关上。</span><span class="leaf-bottom"><span>BALD ON-RECORD</span><i class="mini-stamp" aria-hidden="true">直</i></span></div></div></div></div>
-<div class="fan-page" data-tone="polite" style="--x:-57px;--y:6px;--r:-11deg;--z:3;--tone:#53707e" aria-hidden="true"><div class="leaf-enter"><div class="leaf-reveal"><div class="leaf-surface"><span class="leaf-top"><span>02</span><span>POLITE</span></span><span class="leaf-kind">礼貌 · 常规缓和</span><span class="leaf-copy">请把窗户<br>关上，<br>谢谢。</span><span class="leaf-bottom"><span>MITIGATION</span><i class="mini-stamp" aria-hidden="true">礼</i></span></div></div></div></div>
-<div class="fan-page is-selected" data-tone="vpolite" style="--x:0px;--y:-5px;--r:0deg;--z:5;--tone:#816479" aria-hidden="true"><div class="leaf-enter"><div class="leaf-reveal"><div class="leaf-surface"><span class="leaf-top"><span>03</span><span>VERY POLITE</span></span><span class="leaf-kind">非常礼貌 · 给对方余地</span><span class="leaf-copy"><em>不知是否方便</em><br>请您把窗户<br>关上？</span><span class="leaf-bottom"><span>DEFERENCE</span><i class="mini-stamp" aria-hidden="true">敬</i></span></div></div></div></div>
-<div class="fan-page" data-tone="hint" style="--x:57px;--y:6px;--r:11deg;--z:2;--tone:#667965" aria-hidden="true"><div class="leaf-enter"><div class="leaf-reveal"><div class="leaf-surface"><span class="leaf-top"><span>04</span><span>INDIRECT</span></span><span class="leaf-kind">委婉暗示 · 意在言外</span><span class="leaf-copy">要是窗户<br>关着，<br>就好了。</span><span class="leaf-bottom"><span>OFF-RECORD</span><i class="mini-stamp" aria-hidden="true">婉</i></span></div></div></div></div>
-<div class="fan-page" data-tone="casual" style="--x:112px;--y:29px;--r:22deg;--z:1;--tone:#a27549" aria-hidden="true"><div class="leaf-enter"><div class="leaf-reveal"><div class="leaf-surface"><span class="leaf-top"><span>05</span><span>CASUAL</span></span><span class="leaf-kind">亲近随意 · 熟人之间</span><span class="leaf-copy">把窗户<br>关上呗，<br>谢啦。</span><span class="leaf-bottom"><span>IN-GROUP</span><i class="mini-stamp" aria-hidden="true">昵</i></span></div></div></div></div></div><div class="fan-targets" aria-label="选择预览语气"><button class="fan-target" type="button" data-tone="direct" aria-label="预览直接语气" aria-pressed="false"><span class="sr">预览直接语气</span></button><button class="fan-target" type="button" data-tone="polite" aria-label="预览礼貌语气" aria-pressed="false"><span class="sr">预览礼貌语气</span></button><button class="fan-target" type="button" data-tone="vpolite" aria-label="预览非常礼貌语气" aria-pressed="true"><span class="sr">预览非常礼貌语气</span></button><button class="fan-target" type="button" data-tone="hint" aria-label="预览委婉暗示语气" aria-pressed="false"><span class="sr">预览委婉暗示语气</span></button><button class="fan-target" type="button" data-tone="casual" aria-label="预览亲近随意语气" aria-pressed="false"><span class="sr">预览亲近随意语气</span></button></div>
-</div><div class="hero-caption"><b id="specimenCaption">一句原话，可以留出不同的余地。</b><span>悬停轻抬，点击或用下方标签切换</span><div class="fan-dots" aria-label="切换示例纸页"><button class="fan-dot" data-tone="direct" aria-label="直接纸页" aria-pressed="false"></button><button class="fan-dot" data-tone="polite" aria-label="礼貌纸页" aria-pressed="false"></button><button class="fan-dot" data-tone="vpolite" aria-label="非常礼貌纸页" aria-pressed="true"></button><button class="fan-dot" data-tone="hint" aria-label="委婉暗示纸页" aria-pressed="false"></button><button class="fan-dot" data-tone="casual" aria-label="亲近随意纸页" aria-pressed="false"></button></div></div>
+<span class="specimen-label" data-i18n="typeStudy">TYPE STUDY · 001</span><div class="fan-axis" id="fanAxis">
+<div class="fan-pages"><div class="fan-page" data-tone="direct" style="--x:-112px;--y:29px;--r:-22deg;--z:1;--tone:#666253" aria-hidden="true"><div class="leaf-enter"><div class="leaf-reveal"><div class="leaf-surface"><span class="leaf-top"><span>01</span><span>DIRECT</span></span><span class="leaf-kind" data-i18n="leafKindDirect">直接 · 直陈意图</span><span class="leaf-copy">把窗户<br>关上。</span><span class="leaf-bottom"><span>BALD ON-RECORD</span><i class="mini-stamp" aria-hidden="true">直</i></span></div></div></div></div>
+<div class="fan-page" data-tone="polite" style="--x:-57px;--y:6px;--r:-11deg;--z:3;--tone:#53707e" aria-hidden="true"><div class="leaf-enter"><div class="leaf-reveal"><div class="leaf-surface"><span class="leaf-top"><span>02</span><span>POLITE</span></span><span class="leaf-kind" data-i18n="leafKindPolite">礼貌 · 常规缓和</span><span class="leaf-copy">请把窗户<br>关上，<br>谢谢。</span><span class="leaf-bottom"><span>MITIGATION</span><i class="mini-stamp" aria-hidden="true">礼</i></span></div></div></div></div>
+<div class="fan-page is-selected" data-tone="vpolite" style="--x:0px;--y:-5px;--r:0deg;--z:5;--tone:#816479" aria-hidden="true"><div class="leaf-enter"><div class="leaf-reveal"><div class="leaf-surface"><span class="leaf-top"><span>03</span><span>VERY POLITE</span></span><span class="leaf-kind" data-i18n="leafKindVpolite">非常礼貌 · 给对方余地</span><span class="leaf-copy"><em>不知是否方便</em><br>请您把窗户<br>关上？</span><span class="leaf-bottom"><span>DEFERENCE</span><i class="mini-stamp" aria-hidden="true">敬</i></span></div></div></div></div>
+<div class="fan-page" data-tone="hint" style="--x:57px;--y:6px;--r:11deg;--z:2;--tone:#667965" aria-hidden="true"><div class="leaf-enter"><div class="leaf-reveal"><div class="leaf-surface"><span class="leaf-top"><span>04</span><span>INDIRECT</span></span><span class="leaf-kind" data-i18n="leafKindHint">委婉暗示 · 意在言外</span><span class="leaf-copy">要是窗户<br>关着，<br>就好了。</span><span class="leaf-bottom"><span>OFF-RECORD</span><i class="mini-stamp" aria-hidden="true">婉</i></span></div></div></div></div>
+<div class="fan-page" data-tone="casual" style="--x:112px;--y:29px;--r:22deg;--z:1;--tone:#a27549" aria-hidden="true"><div class="leaf-enter"><div class="leaf-reveal"><div class="leaf-surface"><span class="leaf-top"><span>05</span><span>CASUAL</span></span><span class="leaf-kind" data-i18n="leafKindCasual">亲近随意 · 熟人之间</span><span class="leaf-copy">把窗户<br>关上呗，<br>谢啦。</span><span class="leaf-bottom"><span>IN-GROUP</span><i class="mini-stamp" aria-hidden="true">昵</i></span></div></div></div></div></div><div class="fan-targets" aria-label="选择预览语气"><button class="fan-target" type="button" data-tone="direct" aria-label="预览直接语气" data-i18n-attr="aria-label:fanAriadirect" aria-pressed="false"><span class="sr">预览直接语气</span></button><button class="fan-target" type="button" data-tone="polite" aria-label="预览礼貌语气" data-i18n-attr="aria-label:fanAriapolite" aria-pressed="false"><span class="sr">预览礼貌语气</span></button><button class="fan-target" type="button" data-tone="vpolite" aria-label="预览非常礼貌语气" data-i18n-attr="aria-label:fanAriavpolite" aria-pressed="true"><span class="sr">预览非常礼貌语气</span></button><button class="fan-target" type="button" data-tone="hint" aria-label="预览委婉暗示语气" data-i18n-attr="aria-label:fanAriahint" aria-pressed="false"><span class="sr">预览委婉暗示语气</span></button><button class="fan-target" type="button" data-tone="casual" aria-label="预览亲近随意语气" data-i18n-attr="aria-label:fanAriacasual" aria-pressed="false"><span class="sr">预览亲近随意语气</span></button></div>
+</div><div class="hero-caption"><b id="specimenCaption" data-i18n="captionVpolite">一句原话，可以留出不同的余地。</b><span data-i18n="captionHintLabel">悬停轻抬，点击或用下方标签切换</span><div class="fan-dots" aria-label="切换示例纸页"><button class="fan-dot" data-tone="direct" aria-label="直接纸页" aria-pressed="false"></button><button class="fan-dot" data-tone="polite" aria-label="礼貌纸页" aria-pressed="false"></button><button class="fan-dot" data-tone="vpolite" aria-label="非常礼貌纸页" aria-pressed="true"></button><button class="fan-dot" data-tone="hint" aria-label="委婉暗示纸页" aria-pressed="false"></button><button class="fan-dot" data-tone="casual" aria-label="亲近随意纸页" aria-pressed="false"></button></div></div>
 </div></section>
 <section class="workbench" id="workbench" aria-labelledby="workbenchTitle">
-<div class="section-heading"><div><div class="micro">01 / The original</div><h2 id="workbenchTitle">把想说的话，放在这里。</h2></div><div class="aside">不是翻译，是语用变体。<br>保留意图，改变表达方式。</div></div>
+<div class="section-heading"><div><div class="micro" data-i18n="workMicro">01 / The original</div><h2 id="workbenchTitle" data-i18n="workTitle">把想说的话，放在这里。</h2></div><div class="aside"><span data-i18n="workAside1">不是翻译，是语用变体。</span><br><span data-i18n="workAside2">保留意图，改变表达方式。</span></div></div>
 <form id="rewriteForm" novalidate>
-<div class="composer" id="composer"><div class="compose-meta"><label for="input">原句 / ORIGINAL SENTENCE</label><span><span id="charCount">5</span>/160 <span class="keycap">Ctrl ↵</span></span></div><div class="input-sheet"><textarea id="input" maxlength="160" rows="2" placeholder="例如：把窗户关上" aria-describedby="inputHint">把窗户关上</textarea><div class="press-theatre" id="pressTheatre" aria-hidden="true" hidden>
+<div class="composer" id="composer"><div class="compose-meta"><label for="input" data-i18n="originalLabel">原句 / ORIGINAL SENTENCE</label><span><span id="charCount">5</span>/160 <span class="keycap">Ctrl ↵</span></span></div><div class="input-sheet"><textarea id="input" maxlength="160" rows="2" placeholder="例如：把窗户关上" aria-describedby="inputHint" data-i18n-ph="inputPlaceholder">把窗户关上</textarea><div class="press-theatre" id="pressTheatre" aria-hidden="true" hidden>
   <div class="type-bed" id="typeBed"><div class="type-line" id="typeLine"></div></div>
-  <div class="press-proof" id="pressProof"><span class="proof-register">原句 · 校样</span><div class="proof-impression" id="proofImpression"></div></div>
+  <div class="press-proof" id="pressProof"><span class="proof-register" data-i18n="proofRegister">原句 · 校样</span><div class="proof-impression" id="proofImpression"></div></div>
   <div class="peel-sheet" id="peelSheet"></div>
-  <div class="press-platen" id="pressPlaten"><span class="platen-screw"></span><span class="platen-label">PRAGMATIC PRESS<small>语 用 · 活 字</small></span><span class="platen-screw"></span></div>
-  <span class="press-caption" id="pressCaption">01 · 排字</span>
-</div></div><div class="compose-bottom"><span class="note-short" id="inputHint">输入一句中文。点击示例可替换原句；<br>离线模式使用规则示范，AI 模式适合开放输入。</span><div class="compose-actions"><button class="text-action" type="button" id="clearInput">清空</button><button class="primary" type="submit" id="generateBtn"><span class="submit-label">印出五种表达</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg></button></div></div><div class="error-msg" id="errmsg" role="alert" hidden></div></div>
-<div class="example-row"><span class="label">试试 / TRY</span><div class="chips" id="chips"></div></div>
-<div class="process-row"><ol class="steps" aria-label="改写步骤"><li id="stepInput" class="active">01 原句</li><li id="stepPress">02 改写 · 压印</li><li id="stepProof">03 五种表达</li></ol><span class="process-message" id="processText" aria-live="polite">已就绪 · 离线规则演示</span></div>
+  <div class="press-platen" id="pressPlaten"><span class="platen-screw"></span><span class="platen-label" data-i18n="platenLabel">PRAGMATIC PRESS<small data-i18n="platenSub">语 用 · 活 字</small></span><span class="platen-screw"></span></div>
+  <span class="press-caption" id="pressCaption" data-i18n="pressCap1">01 · 排字</span>
+</div></div><div class="compose-bottom"><span class="note-short" id="inputHint"><span data-i18n="inputHint1">输入一句中文。点击示例可替换原句；</span><br><span data-i18n="inputHint2">离线模式使用规则示范，AI 模式适合开放输入。</span></span><div class="compose-actions"><button class="text-action" type="button" id="clearInput" data-i18n="clearBtn">清空</button><button class="primary" type="submit" id="generateBtn"><span class="submit-label" data-i18n="generateBtn">印出五种表达</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg></button></div></div><div class="error-msg" id="errmsg" role="alert" hidden></div></div>
+<div class="example-row"><span class="label" data-i18n="tryLabel">试试 / TRY</span><div class="chips" id="chips"></div></div>
+<div class="process-row"><ol class="steps" aria-label="改写步骤"><li id="stepInput" class="active" data-i18n="step1">01 原句</li><li id="stepPress" data-i18n="step2">02 改写 · 压印</li><li id="stepProof" data-i18n="step3">03 五种表达</li></ol><span class="process-message" id="processText" aria-live="polite" data-i18n="readyRule">已就绪 · 离线规则演示</span></div>
 </form></section>
 <section class="results" id="results" aria-labelledby="resultsTitle" hidden>
-<div class="results-head"><h2 class="results-title" id="resultsTitle">一意 · 五式<small>FIVE READINGS OF ONE INTENTION</small></h2><div class="result-tools"><button class="small-button" type="button" id="replayBtn">↻ 重播展开</button><button class="small-button" type="button" id="notesBtn" aria-pressed="true">批注 开</button><button class="small-button" type="button" id="copyAllBtn">复制全部</button></div></div>
+<div class="results-head"><h2 class="results-title" id="resultsTitle" data-i18n="resultsTitle">一意 · 五式<small data-i18n="resultsSub">FIVE READINGS OF ONE INTENTION</small></h2><div class="result-tools"><button class="small-button" type="button" id="replayBtn" data-i18n="replayBtn">↻ 重播展开</button><button class="small-button" type="button" id="notesBtn" aria-pressed="true" data-i18n="notesOn">批注 开</button><button class="small-button" type="button" id="copyAllBtn" data-i18n="copyAll">复制全部</button></div></div>
 <div class="intent" id="intent"></div><div class="proof-grid" id="out"></div>
-<div class="proof-colophon"><div><p class="colophon-line" id="colophonLine">语气有别，意图仍在。</p><p class="colophon-note" id="colophonNote">选择一句，留下这一页的落款。</p></div><div class="final-seal"><span class="edition-code">EXPRESSION STUDY<br><b id="editionCode">—</b></span><svg class="chop" id="editionSeal" viewBox="0 0 64 64" role="img" aria-label="本次改写的印记"><path d="M5 5H57V57H5Z M9 9H53V53H9Z" fill="none" stroke="currentColor" stroke-width="1.3"/><g id="sealLines" stroke="currentColor" stroke-width="1" fill="none"></g><text x="18" y="39" class="seal-label" id="sealText">五式</text></svg></div></div>
-<div class="bottom-notes">语用提示：礼貌并不等于越委婉越好。语气的得体程度取决于关系、场合和共同背景；暗示尤其依赖听者推断。离线演示覆盖有限句式，不等同于通用语言模型。</div>
+<div class="proof-colophon"><div><p class="colophon-line" id="colophonLine" data-i18n="colophonDefault">语气有别，意图仍在。</p><p class="colophon-note" id="colophonNote" data-i18n="colophonNoteDefault">选择一句，留下这一页的落款。</p></div><div class="final-seal"><span class="edition-code">EXPRESSION STUDY<br><b id="editionCode">—</b></span><svg class="chop" id="editionSeal" viewBox="0 0 64 64" role="img" aria-label="本次改写的印记"><path d="M5 5H57V57H5Z M9 9H53V53H9Z" fill="none" stroke="currentColor" stroke-width="1.3"/><g id="sealLines" stroke="currentColor" stroke-width="1" fill="none"></g><text x="18" y="39" class="seal-label" id="sealText">五式</text></svg></div></div>
+<div class="bottom-notes" data-i18n="bottomNotes">语用提示：礼貌并不等于越委婉越好。语气的得体程度取决于关系、场合和共同背景；暗示尤其依赖听者推断。离线演示覆盖有限句式，不等同于通用语言模型。</div>
 </section>
 </main>
-<footer class="footer"><div><span class="micro">Pragmatics, put into practice.</span></div><p>Pragmatic Rephraser · 中文语用改写实验<br>单文件 · 无外部字体与动画库 · 可选自配 AI　/　D 切换批注，R 清空<br>设计参考：<a href="https://github.com/OBdangshang07/AI_project/tree/main/Esthetics/Deepseek0820" target="_blank" rel="noopener noreferrer">未定之场</a>的纸墨排版语言；本版使用独立的纸页压印交互。</p></footer>
+<footer class="footer"><div><span class="micro" data-i18n="footerLine3">Pragmatics, put into practice.</span></div><p><span data-i18n="footerMain">Pragmatic Rephraser · 中文语用改写实验</span><br><span data-i18n="footerLine2">单文件 · 无外部字体与动画库 · 可选自配 AI　/　D 切换批注，R 清空</span><br><span data-i18n="footerRef">设计参考：</span><a href="https://github.com/OBdangshang07/AI_project/tree/main/Esthetics/Deepseek0820" target="_blank" rel="noopener noreferrer">未定之场</a>的纸墨排版语言；本版使用独立的纸页压印交互。</p></footer>
 </div>
 <div class="overlay" id="overlay"><section class="modal" role="dialog" aria-modal="true" aria-labelledby="settingsTitle"><div class="modal-head"><div><div class="micro">Connection / 配置</div><h2 id="settingsTitle">让表达，接入 AI。</h2></div><button class="close-modal" id="closeSettingsBtn" type="button" aria-label="关闭 AI 配置">×</button></div><p class="desc">支持 OpenAI 兼容的 Chat Completions 接口。模型是否可用取决于服务商和账户权限。<span class="privacy">只有点击 AI 生成或测试连接时，输入和密钥才会发送至下方配置的服务商地址。本站没有中转服务器。密钥默认仅在本次页面中保存，不要在公共设备上勾选记住。</span></p><div class="frow"><label for="f_preset">服务商 / PROVIDER</label><select id="f_preset"><option value="">选择服务商或自定义</option><option value="deepseek">DeepSeek</option><option value="zhipu">智谱 GLM</option><option value="moonshot">Kimi / Moonshot</option><option value="openai">OpenAI</option><option value="ark">豆包 / 火山方舟</option><option value="custom">自定义兼容接口</option></select></div><div class="frow"><label for="f_base">完整接口地址 / ENDPOINT</label><input id="f_base" type="url" placeholder="https://api.deepseek.com/chat/completions" spellcheck="false"></div><div class="frow"><label for="f_key">API KEY</label><div class="keywrap"><input id="f_key" type="password" placeholder="输入你自己的 API Key" autocomplete="off" spellcheck="false"><button class="keytoggle" type="button" id="keyToggle">显示</button></div></div><div class="frow"><label for="f_model">模型或接入点 / MODEL</label><input id="f_model" placeholder="选择服务商后自动填入当前模型名" spellcheck="false"><span class="model-hint">模型名以各服务商文档为准（如 DeepSeek 当前为 deepseek-v4-flash / deepseek-v4-pro）。模型会更新换代，填错时看「测试连接」的具体报错。</span></div><label class="remember"><input type="checkbox" id="rememberKey">在此浏览器记住密钥（明文 localStorage，可随时清除）</label><div class="teststat" id="testStat" role="status"></div><div class="mbtns"><button class="mbtn primary" type="button" id="saveBtn">保存配置</button><button class="mbtn" type="button" id="testBtn">测试连接（调用 API）</button><button class="mbtn danger" type="button" id="clearKeyBtn">清除配置</button></div></section></div>
 <div id="toast" role="status"></div>
@@ -342,6 +343,96 @@ NOTE.suggestion.vpolite = '用“冒昧／您／仅供参考”标记建议的�
 NOTE.suggestion.hint = '以假设性的愿望表达呈现建议；没有虚构他人的经历或健康效果。';
 NOTE.suggestion.casual = '用“呗／呀”和“试试”表现熟人间的轻松推荐，不虚构亲测经验。';
 
+let uiLang = 'zh';
+try { uiLang = localStorage.getItem('pr_lang_v8') === 'en' ? 'en' : 'zh'; } catch (e) {}
+const UI = {
+  zh: {
+    "brandTitle": "语用印坊", "navLab": "表达实验室", "motionOn": "动效 开", "motionOff": "动效 关",
+    "offlineDemo": "离线演示", "configAI": "配置 AI", "eyebrow": "The art of saying it differently",
+    "heroH1a": "同一句话，", "heroH1b": "不同的", "heroH1c": "分寸。",
+    "heroIntro1": "直言、礼貌，或留一点余地。", "heroIntro2": "将一个意图展开为五种表达，看看", "heroIntro3": "语言如何改变人与人之间的距离",
+    "ctaWork": "开始改写", "ctaDemo": "看一次压印演示",
+    "heroFoot": "01 INTENTION&nbsp;/&nbsp;05 EXPRESSIONS&nbsp;/&nbsp;中文语用实验",
+    "typeStudy": "TYPE STUDY · 001",
+    "captionDirect": "把话说明白，是一种选择。", "captionPolite": "一个“请”字，为对话留出入口。", "captionVpolite": "一句问询，把决定权留给对方。", "captionHint": "有些意思，不必直说。", "captionCasual": "熟悉的关系，让语气轻一点。",
+    "captionHintLabel": "悬停轻抬，点击或用下方标签切换",
+    "leafKindDirect": "直接 · 直陈意图", "leafKindPolite": "礼貌 · 常规缓和", "leafKindVpolite": "非常礼貌 · 给对方余地", "leafKindHint": "委婉暗示 · 意在言外", "leafKindCasual": "亲近随意 · 熟人之间",
+    "workTitle": "把想说的话，放在这里。", "workMicro": "01 / The original", "workAside1": "不是翻译，是语用变体。", "workAside2": "保留意图，改变表达方式。",
+    "originalLabel": "原句 / ORIGINAL SENTENCE", "inputPlaceholder": "例如：把窗户关上",
+    "pressCap1": "01 · 排字", "pressCap2": "02 · 落压", "pressCap3": "03 · 保压着墨", "pressCap4": "04 · 揭纸显字", "pressCap5": "05 · 展开表达",
+    "proofRegister": "原句 · 校样", "platenLabel": "PRAGMATIC PRESS", "platenSub": "语 用 · 活 字",
+    "inputHint1": "输入一句中文。点击示例可替换原句；", "inputHint2": "离线模式使用规则示范，AI 模式适合开放输入。",
+    "clearBtn": "清空", "generateBtn": "印出五种表达", "generatingBtn": "正在改写与压印", "tryLabel": "试试 / TRY",
+    "step1": "01 原句", "step2": "02 改写 · 压印", "step3": "03 五种表达",
+    "readyRule": "已就绪 · 离线规则演示", "readyAi": "已就绪 · AI 模式",
+    "changedIdle": "原句已更改 · 可以重新压印", "emptyIdle": "已清空 · 等待一句新的表达", "exampleFilled": "示例已填入 · 点击印出五种表达",
+    "pressingAi": "正在调用配置的 AI，同时准备压印", "pressingRule": "离线改写完成 · 正在播放压印动效",
+    "waitingAi": "压印动效已完成 · 仍在等待 AI 返回", "doneAi": "已完成 · AI 改写", "doneRule": "已完成 · 离线规则演示",
+    "genUnfinished": "生成未完成", "errNeedValid": "需要一句有效的中文输入",
+    "resultsTitle": "一意 · 五式", "resultsSub": "FIVE READINGS OF ONE INTENTION",
+    "replayBtn": "↻ 重播展开", "notesOn": "批注 开", "notesOff": "批注 关", "copyAll": "复制全部",
+    "speechAct": "言语行为：", "evidence": "　识别线索：",
+    "aiSourceTag": "AI GENERATED", "ruleSourceTag": "OFFLINE DEMONSTRATION", "warnFallback": "。已显示离线规则演示。",
+    "useThis": "选用这一句", "chosen": "已选用 ✓", "copy": "复制 ↗",
+    "toastCopied": "已复制，可直接粘贴。", "toastCopyFail": "浏览器未允许复制，请选中文字手动复制。",
+    "colophonDefault": "语气有别，意图仍在。", "colophonNoteDefault": "选择一句，留下这一页的落款。", "colophonChosen": "这一句，选用「", "colophonChosenEnd": "」。", "colophonDeterministic": "同一原句与同一语气，留下相同的印记。",
+    "bottomNotes": "语用提示：礼貌并不等于越委婉越好。语气的得体程度取决于关系、场合和共同背景；暗示尤其依赖听者推断。离线演示覆盖有限句式，不等同于通用语言模型。",
+    "settingsTitle": "让表达，接入 AI。", "settingsMicro": "Connection / 配置", "settingsClose": "关闭 AI 配置",
+    "settingsDesc1": "支持 OpenAI 兼容的 Chat Completions 接口。模型是否可用取决于服务商和账户权限。",
+    "settingsPrivacy": "只有点击 AI 生成或测试连接时，输入和密钥才会发送至下方配置的服务商地址。本站没有中转服务器。密钥默认仅在本次页面中保存，不要在公共设备上勾选记住。",
+    "providerLabel": "服务商 / PROVIDER", "endpointLabel": "完整接口地址 / ENDPOINT", "keyLabel": "API KEY", "modelLabel": "模型或接入点 / MODEL",
+    "modelPlaceholder": "选择服务商后自动填入当前模型名",
+    "modelHint": "模型名以各服务商文档为准（如 DeepSeek 当前为 deepseek-v4-flash / deepseek-v4-pro）。模型会更新换代，填错时看「测试连接」的具体报错。",
+    "rememberKey": "在此浏览器记住密钥（明文 localStorage，可随时清除）", "saveBtn": "保存配置", "testBtn": "测试连接（调用 API）", "clearKeyBtn": "清除配置", "showKey": "显示", "hideKey": "隐藏",
+    "settingsFileHint": "当前是 file:// 打开，浏览器会拦截对 AI 的跨域请求。请在项目目录运行 python -m http.server 8765，改用 http://127.0.0.1:8765/index.html 打开后 AI 即可用。",
+    "errEmpty": "请先写下一句中文。", "errTooLong": "请输入 160 字以内、包含中文的单句。",
+    "footerLine3": "Pragmatics, put into practice.", "footerMain": "Pragmatic Rephraser · 中文语用改写实验", "footerLine2": "单文件 · 无外部字体与动画库 · 可选自配 AI　/　D 切换批注，R 清空", "footerRef": "设计参考："
+  },
+  en: {
+    "brandTitle": "Pragmatic Press", "navLab": "Expression Lab", "motionOn": "Motion On", "motionOff": "Motion Off",
+    "offlineDemo": "Offline demo", "configAI": "Configure AI", "eyebrow": "The art of saying it differently",
+    "heroH1a": "One sentence,", "heroH1b": "many shades", "heroH1c": "of meaning.",
+    "heroIntro1": "Direct, polite, or leaving room.", "heroIntro2": "Turn one intention into five expressions and see", "heroIntro3": "how language changes the distance between people",
+    "ctaWork": "Start writing", "ctaDemo": "Watch a press demo",
+    "heroFoot": "01 INTENTION&nbsp;/&nbsp;05 EXPRESSIONS&nbsp;/&nbsp;CHINESE PRAGMATICS",
+    "typeStudy": "TYPE STUDY · 001",
+    "captionDirect": "Saying it plainly is a choice.", "captionPolite": "One “请” leaves room for a reply.", "captionVpolite": "A question leaves the choice to them.", "captionHint": "Some meanings need not be spoken.", "captionCasual": "Familiarity lets tone turn light.",
+    "captionHintLabel": "Hover to lift · click to flip",
+    "leafKindDirect": "Direct · stated plainly", "leafKindPolite": "Polite · conventional softening", "leafKindVpolite": "Very polite · leaving them room", "leafKindHint": "Indirect · meaning beyond words", "leafKindCasual": "Casual · between close peers",
+    "workTitle": "Put the sentence you want to say here.", "workMicro": "01 / The original", "workAside1": "Not translation — pragmatic variation.", "workAside2": "Same intention, different expression.",
+    "originalLabel": "Original sentence · 原句", "inputPlaceholder": "e.g. 把窗户关上",
+    "pressCap1": "01 · setting type", "pressCap2": "02 · pressing down", "pressCap3": "03 · holding the press", "pressCap4": "04 · peeling the sheet", "pressCap5": "05 · unfolding the readings",
+    "proofRegister": "ORIGINAL · PROOF", "platenLabel": "PRAGMATIC PRESS", "platenSub": "CHINESE · TYPE",
+    "inputHint1": "Write one Chinese sentence. Click an example to replace it;", "inputHint2": "offline mode uses rule demos, AI mode suits open input.",
+    "clearBtn": "Clear", "generateBtn": "Print five readings", "generatingBtn": "Rewriting & pressing", "tryLabel": "TRY · 试试",
+    "step1": "01 Sentence", "step2": "02 Rewrite · Press", "step3": "03 Five readings",
+    "readyRule": "Ready · offline rule demo", "readyAi": "Ready · AI mode",
+    "changedIdle": "Sentence changed — press again", "emptyIdle": "Cleared · waiting for a sentence", "exampleFilled": "Example filled — press to print",
+    "pressingAi": "Calling the configured AI while pressing", "pressingRule": "Rewritten offline · playing the press",
+    "waitingAi": "Press finished · still waiting on AI", "doneAi": "Done · AI rewrite", "doneRule": "Done · offline rule demo",
+    "genUnfinished": "Generation failed", "errNeedValid": "A valid Chinese sentence is required",
+    "resultsTitle": "One intention · Five voices", "resultsSub": "FIVE READINGS OF ONE INTENTION",
+    "replayBtn": "↻ Replay unfold", "notesOn": "Annotations On", "notesOff": "Annotations Off", "copyAll": "Copy all",
+    "speechAct": "Speech act: ", "evidence": "　Clues: ",
+    "aiSourceTag": "AI GENERATED", "ruleSourceTag": "OFFLINE DEMONSTRATION", "warnFallback": ". Showing the offline rule demo instead.",
+    "useThis": "Use this one", "chosen": "Selected ✓", "copy": "Copy ↗",
+    "toastCopied": "Copied to clipboard.", "toastCopyFail": "Copy blocked — select the text manually.",
+    "colophonDefault": "Tone varies; the intention stays.", "colophonNoteDefault": "Choose one reading to seal this page.", "colophonChosen": "This page adopts “", "colophonChosenEnd": "”.", "colophonDeterministic": "The same sentence and tone always cut the same seal.",
+    "bottomNotes": "Pragmatics note: politeness is not “more is better”. Fit depends on relationship, context and shared background; hints rely especially on the hearer. Offline demos cover a limited set of sentence types, not a general language model.",
+    "settingsTitle": "Let expression connect to AI.", "settingsMicro": "Connection / 配置", "settingsClose": "Close AI settings",
+    "settingsDesc1": "Uses OpenAI-compatible Chat Completions. Model availability depends on the provider and your account.",
+    "settingsPrivacy": "Only when you press AI generation or Test connection are the sentence and key sent to the provider address you configure below. This site has no server. The key stays in this page by default; do not tick “remember” on shared machines.",
+    "providerLabel": "Provider · 服务商", "endpointLabel": "Endpoint URL · 接口地址", "keyLabel": "API KEY", "modelLabel": "Model / deployment · 模型",
+    "modelPlaceholder": "Auto-filled from provider; edit freely",
+    "modelHint": "Model names follow each provider's docs (DeepSeek V4: deepseek-v4-flash / deepseek-v4-pro). Models change — read the specific error from “Test connection”.",
+    "rememberKey": "Remember key in this browser (plain localStorage; clear anytime)", "saveBtn": "Save config", "testBtn": "Test connection (calls API)", "clearKeyBtn": "Clear config", "showKey": "Show", "hideKey": "Hide",
+    "settingsFileHint": "Opened as file:// — browsers block cross-origin AI calls. In the project folder run  python -m http.server 8765  and open  http://127.0.0.1:8765/index.html  to enable AI.",
+    "errEmpty": "Please write a Chinese sentence first.", "errTooLong": "One Chinese sentence, up to 160 characters.",
+    "footerLine3": "Pragmatics, put into practice.", "footerMain": "Pragmatic Rephraser · a Chinese pragmatics experiment", "footerLine2": "Single file · no fonts or animation libraries · optional BYO AI　/　D notes, R clear", "footerRef": "Design reference: "
+  }
+};
+function t(key) { const s = (UI[uiLang] || UI.zh)[key]; return s === undefined ? key : s; }
+
 const $ = id => document.getElementById(id);
 const motionPreference = matchMedia('(prefers-reduced-motion: reduce)');
 let motionEnabled = !motionPreference.matches;
@@ -446,7 +537,7 @@ document.querySelector('.fan-targets').addEventListener('pointerleave',()=>hover
 document.querySelector('.fan-targets').addEventListener('pointercancel',()=>hoverFan(null));
 
 function sourceMode(){return config.base&&config.key&&config.model?'ai':'rule';}
-function refreshMode(){const ai=sourceMode()==='ai';$('modeChip').classList.toggle('ai',ai);$('modeText').textContent=ai?'AI · '+config.model:'离线规则演示';}
+function refreshMode(){const ai=sourceMode()==='ai';$('modeChip').classList.toggle('ai',ai);$('modeText').textContent=ai?'AI · '+config.model:t('offlineDemo');}
 function status(phase,text){
   document.body.dataset.phase=phase;
   $('processText').textContent=text;
@@ -454,12 +545,33 @@ function status(phase,text){
   $('stepPress').className=phase==='pressing'||phase==='waiting'?'active':phase==='complete'?'done':'';
   $('stepProof').className=phase==='complete'?'active':'';
 }
-function busy(value){$('generateBtn').disabled=value;$('generateBtn').querySelector('.submit-label').textContent=value?'正在改写与压印':'印出五种表达';$('rewriteForm').setAttribute('aria-busy',String(value));}
+function statusText(phase){return t({idle:'changedIdle',pressing:'pressingRule',waiting:'waitingAi',complete:'doneRule'}[phase]||'readyRule');}
+function notesLabel(){const off=$('out').classList.contains('no-notes');$('notesBtn').textContent=t(off?'notesOff':'notesOn');$('notesBtn').setAttribute('aria-pressed',String(!off));}
+function copyAllLabel(){}
+function applyStatic(){for(const el of document.querySelectorAll('[data-i18n]')){const v=t(el.dataset.i18n);if(el.matches('textarea'))el.placeholder=v;else el.innerHTML=v;}for(const el of document.querySelectorAll('[data-i18n-attr]')){const i=el.dataset.i18nAttr.indexOf(':');el.setAttribute(el.dataset.i18nAttr.slice(0,i),t(el.dataset.i18nAttr.slice(i+1)));}
+  const bs=$('brandSeal');if(bs)bs.innerHTML=(uiLang==='zh'?'微<br>言':'EN<br>PR');const lt=$('langToggle');if(lt){lt.textContent=uiLang==='zh'?'EN':'中';lt.setAttribute('aria-label',uiLang==='zh'?'Switch to English':'切换到中文');}}
+function updateDynamicUI(){
+  refreshMode();
+  $('motionToggle').textContent=t(motionEnabled?'motionOn':'motionOff');
+  const grid=$('out'),has=latest&&!$('results').hidden&&grid.dataset.typezh;
+  if(!has)return;
+  $('intent').innerHTML=`<span class="source-tag">${t(grid.dataset.source==='ai'?'aiSourceTag':'ruleSourceTag')}</span><span>${t('speechAct')}</span><strong>${grid.dataset.typezh}</strong>${grid.dataset.ev?`<span>${t('evidence')}${grid.dataset.ev}</span>`:''}${grid.dataset.fallback?`<span class="warning">${grid.dataset.fallback}${t('warnFallback')}</span>`:''}`;
+  for(const card of grid.children){
+    if(!card.dataset.tone)continue;
+    const zh=card.dataset.zh,sel=card.dataset.tone===selectedTone;
+    const btn=card.querySelector('.select-proof');if(btn){btn.textContent=sel?t('chosen'):t('useThis');btn.setAttribute('aria-pressed',String(sel));}
+    const copy=card.querySelector('.copy');if(copy)copy.setAttribute('aria-label',t('copy').replace(' ↗','')+' '+zh);
+    card.setAttribute('aria-label',zh);
+  }
+  if(selectedTone&&toneMeta[selectedTone]){ $('colophonLine').textContent=t('colophonChosen')+toneMeta[selectedTone].zh+t('colophonChosenEnd');$('colophonNote').textContent=t('colophonDeterministic');}
+}
+function updateAllDynamic(){updateDynamicUI();}
+function busy(value){$('generateBtn').disabled=value;$('generateBtn').querySelector('.submit-label').textContent=value?t('generatingBtn'):t('generateBtn');$('rewriteForm').setAttribute('aria-busy',String(value));}
 function invalidate(){runId++;if(activeRun)activeRun.controller.abort();activeRun=null;clearPress();cancelMotion();$('composer').classList.remove('is-pressing');delete document.body.dataset.printStage;busy(false);}
-function hideResults(){latest=null;selectedTone=null;$('results').hidden=true;$('out').replaceChildren();$('colophonLine').textContent='语气有别，意图仍在。';$('colophonNote').textContent='选择一句，留下这一页的落款。';}
+function hideResults(){latest=null;selectedTone=null;$('results').hidden=true;$('out').replaceChildren();$('colophonLine').textContent=t('colophonDefault');$('colophonNote').textContent=t('colophonNoteDefault');}
 function updateCounter(){ $('charCount').textContent=Array.from($('input').value).length; }
-function clearAll(){invalidate();hideResults();$('input').value='';$('errmsg').hidden=true;status('idle','已清空 · 等待一句新的表达');updateCounter();}
-function cancelForInput(){if(activeRun||latest){invalidate();hideResults();status('idle','原句已更改 · 可以重新压印');}$('errmsg').hidden=true;updateCounter();}
+function clearAll(){invalidate();hideResults();$('input').value='';$('errmsg').hidden=true;status('idle',t('emptyIdle'));updateCounter();}
+function cancelForInput(){if(activeRun||latest){invalidate();hideResults();status('idle',t('changedIdle'));}$('errmsg').hidden=true;updateCounter();}
 $('input').addEventListener('input',cancelForInput);
 $('clearInput').addEventListener('click',clearAll);
 
@@ -533,7 +645,7 @@ function printOriginal(input){
   const clock=play(theatre,[{opacity:1},{opacity:1}],{});
   return (clock?clock.finished.catch(()=>{}):Promise.resolve()).then(()=>{
     const owns=activePress===session;endPress(session);
-    if(owns&&session.id===runId&&activeRun&&!activeRun.resultReady)status('waiting','压印动效已完成 · 仍在等待 AI 返回');
+    if(owns&&session.id===runId&&activeRun&&!activeRun.resultReady)status('waiting',t('waitingAi'));
   });
 }
 function unfoldResults(){
@@ -557,10 +669,10 @@ function unfoldResults(){
 
 function buildProofs(result,play){
   $('out').replaceChildren();$('intent').replaceChildren();
-  const source=document.createElement('span');source.className='source-tag';source.textContent=result.source==='ai'?'AI GENERATED':'OFFLINE DEMONSTRATION';$('intent').append(source);
+  const source=document.createElement('span');source.className='source-tag';source.textContent=t(result.source==='ai'?'aiSourceTag':'ruleSourceTag');$('intent').append(source);
   const text=document.createElement('span');text.textContent='言语行为：';const strong=document.createElement('strong');strong.textContent=result.intent.zh;
   $('intent').append(text,strong);
-  if(result.intent.ev.length){const ev=document.createElement('span');ev.textContent='　识别线索：'+result.intent.ev.join(' · ');$('intent').append(ev);}
+  if(result.intent.ev.length){const ev=document.createElement('span');ev.textContent=t('evidence')+result.intent.ev.join(' · ');$('intent').append(ev);}
   if(result.fallback){const warn=document.createElement('span');warn.className='warning';warn.textContent=result.fallback+'。已显示离线规则演示。';$('intent').append(warn);}
   const ordered=TONES;
   for(const [i,t] of ordered.entries()){
@@ -571,6 +683,7 @@ function buildProofs(result,play){
     card.querySelector('.copy').addEventListener('click',()=>copyText(result.versions[t.key]));
     $('out').append(card);
   }
+    const outGrid=$('out');outGrid.dataset.source=result.source==='ai'?'ai':'rule';outGrid.dataset.typezh=result.intent.zh;outGrid.dataset.ev=(result.intent.ev||[]).join(' · ');outGrid.dataset.fallback=result.fallback||'';
   $('results').hidden=false;stamp(result.input,'all',false);
   if(play)unfoldResults();
 }
@@ -584,8 +697,8 @@ function highlightSafe(raw,devices){
 function chooseProof(key){
   if(!latest)return;selectedTone=key;
   for(const card of $('out').children){const on=card.dataset.tone===key;card.classList.toggle('selected',on);const btn=card.querySelector('.select-proof');btn.setAttribute('aria-pressed',String(on));btn.textContent=on?'已选用 ✓':'选用这一句';}
-  $('colophonLine').textContent='这一句，选用「'+toneMeta[key].zh+'」。';
-  $('colophonNote').textContent='同一原句与同一语气，留下相同的印记。';stamp(latest.input,key,true);
+  $('colophonLine').textContent=t('colophonChosen')+toneMeta[key].zh+t('colophonChosenEnd');
+  $('colophonNote').textContent=t('colophonDeterministic');stamp(latest.input,key,true);
 }
 
 function parseReply(text){
@@ -622,9 +735,9 @@ function localResult(raw){
 async function run({instant=false,forceOffline=false}={}){
   const input=$('input').value.trim();
   invalidate();
-  if(!input||!/[\u3400-\u9fff\uf900-\ufaff]/u.test(input)||Array.from(input).length>160){hideResults();$('errmsg').textContent=!input?'请先写下一句中文。':'请输入 160 字以内、包含中文的单句。';$('errmsg').hidden=false;status('idle','需要一句有效的中文输入');return;}
+  if(!input||!/[\u3400-\u9fff\uf900-\ufaff]/u.test(input)||Array.from(input).length>160){hideResults();$('errmsg').textContent=!input?'请先写下一句中文。':'请输入 160 字以内、包含中文的单句。';$('errmsg').hidden=false;status('idle',t('errNeedValid'));return;}
   const id=++runId,controller=new AbortController();activeRun={id,controller,input,resultReady:false};hideResults();$('errmsg').hidden=true;busy(true);
-  const ai=!forceOffline&&sourceMode()==='ai';status('pressing',ai?'正在调用配置的 AI，同时准备压印':'离线改写完成 · 正在播放压印动效');
+  const ai=!forceOffline&&sourceMode()==='ai';status('pressing',ai?t('pressingAi'):t('pressingRule'));
   const presentation=instant?Promise.resolve():printOriginal(input);
   let result, fallback='';
   try{
@@ -637,28 +750,28 @@ async function run({instant=false,forceOffline=false}={}){
     if(id!==runId)return;
     latest={...result,input,source:ai&&!fallback?'ai':'rule',fallback};
     $('composer').classList.remove('is-pressing');buildProofs(latest,!instant);
-    status('complete',latest.source==='ai'?'已完成 · AI 改写':'已完成 · 离线规则演示');
+    status('complete',latest.source==='ai'?t('doneAi'):t('doneRule'));
     if(!instant){const r=$('results').getBoundingClientRect();if(r.top>innerHeight*.82)$('results').scrollIntoView({behavior:motionEnabled?'smooth':'instant',block:'start'});}
-  }catch(e){if(id!==runId)return;status('idle','生成未完成');$('errmsg').textContent='无法完成改写：'+e.message;$('errmsg').hidden=false;hideResults();}
+  }catch(e){if(id!==runId)return;status('idle',t('genUnfinished'));$('errmsg').textContent='无法完成改写：'+e.message;$('errmsg').hidden=false;hideResults();}
   finally{if(id===runId){busy(false);activeRun=null;$('composer').classList.remove('is-pressing');}}
 }
 $('rewriteForm').addEventListener('submit',e=>{e.preventDefault();run();});
 $('demoBtn').addEventListener('click',()=>{invalidate();$('input').value='把窗户关上';updateCounter();$('workbench').scrollIntoView({behavior:motionEnabled?'smooth':'instant',block:'start'});run({forceOffline:true});});
 $('replayBtn').addEventListener('click',()=>{if(latest){cancelMotion();unfoldResults();}});
-$('notesBtn').addEventListener('click',()=>{const off=$('out').classList.toggle('no-notes');$('notesBtn').textContent=off?'批注 关':'批注 开';$('notesBtn').setAttribute('aria-pressed',String(!off));});
+$('notesBtn').addEventListener('click',()=>{const off=$('out').classList.toggle('no-notes');notesLabel();});
 $('copyAllBtn').addEventListener('click',()=>{if(latest)copyText(TONES.map(t=>`【${toneMeta[t.key].zh}】${latest.versions[t.key]}`).join('\n'));});
 for(const s of ['我需要你的帮助','借我三百块钱','你这份PPT做得太差了','这周末我没空，去不了','办公室太吵了，我没法工作']){
-  const button=document.createElement('button');button.type='button';button.className='chip';button.textContent=s;button.addEventListener('click',()=>{invalidate();hideResults();$('input').value=s;updateCounter();status('idle','示例已填入 · 点击印出五种表达');$('errmsg').hidden=true;});$('chips').append(button);
+  const button=document.createElement('button');button.type='button';button.className='chip';button.textContent=s;button.addEventListener('click',()=>{invalidate();hideResults();$('input').value=s;updateCounter();status('idle',t('exampleFilled'));$('errmsg').hidden=true;});$('chips').append(button);
 }
 async function copyText(text){
-  try{if(navigator.clipboard?.writeText)await navigator.clipboard.writeText(text);else {const field=document.createElement('textarea');field.value=text;field.style.cssText='position:fixed;left:-9999px';document.body.append(field);field.select();const ok=document.execCommand('copy');field.remove();if(!ok)throw Error('copy');}showToast('已复制，可直接粘贴。');}
-  catch{showToast('浏览器未允许复制，请选中文字手动复制。');}
+  try{if(navigator.clipboard?.writeText)await navigator.clipboard.writeText(text);else {const field=document.createElement('textarea');field.value=text;field.style.cssText='position:fixed;left:-9999px';document.body.append(field);field.select();const ok=document.execCommand('copy');field.remove();if(!ok)throw Error('copy');}showToast(t('toastCopied'));}
+  catch{showToast(t('toastCopyFail'));}
 }
 function showToast(message){$('toast').textContent=message;$('toast').classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>$('toast').classList.remove('show'),2600);}
 
 function openSettings(){
   previousFocus=document.activeElement;$('f_base').value=config.base;$('f_key').value=config.key;$('f_key').type='password';$('keyToggle').textContent='显示';$('f_model').value=config.model;$('rememberKey').checked=!!config.remember;$('testStat').textContent='';$('testStat').className='teststat';
-  if(location.protocol==='file:'){$('testStat').textContent='当前是 file:// 打开，浏览器会拦截对 AI 的跨域请求。请在项目目录运行 python -m http.server 8765，改用 http://127.0.0.1:8765/index.html 打开后 AI 即可用。';$('testStat').className='teststat bad';}
+  if(location.protocol==='file:'){$('testStat').textContent=t('settingsFileHint');$('testStat').className='teststat bad';}
   $('overlay').classList.add('show');document.body.style.overflow='hidden';$('closeSettingsBtn').focus();
 }
 function closeSettings(){$('overlay').classList.remove('show');document.body.style.overflow='';if(previousFocus?.isConnected)previousFocus.focus();}
@@ -691,6 +804,9 @@ document.addEventListener('keydown',e=>{
   if(e.ctrlKey||e.metaKey||e.altKey||e.target.closest('input,textarea,select,[contenteditable=true]'))return;
   if(e.key.toLowerCase()==='d'&&latest)$('notesBtn').click();if(e.key.toLowerCase()==='r')clearAll();
 });
+$('langToggle').addEventListener('click',()=>{uiLang=uiLang==='zh'?'en':'zh';try{localStorage.setItem('pr_lang_v8',uiLang);}catch{}
+document.documentElement.lang=uiLang;applyStatic();busy($('generateBtn').disabled);notesLabel();copyAllLabel();updateDynamicUI();
+const pt=document.body.dataset.phase;if(pt&&$('processText'))$('processText').textContent=statusText(pt);});
 setMotion(!motionPreference.matches);refreshMode();updateCounter();
 fanOpen();
 if(location.hash.startsWith('#q=')){
