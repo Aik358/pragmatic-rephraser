@@ -81,6 +81,7 @@ body.motion-off .fan-page.is-hovered .leaf-surface{transform:none}
 .say mark{background-repeat:no-repeat;background-size:100% 100%}
 body.motion-off .press-theatre{display:none}
 @media(max-width:730px){.type-bed,.press-proof{padding:24px 12px 12px}.type-line{gap:3px}.platen-label{font-size:9px;letter-spacing:.2em}.press-platen{padding:12px}.platen-screw:first-child{left:8px}.platen-screw:last-child{right:8px}}
+.model-hint{display:block;font:10px/1.8 var(--mono);color:#93887a;margin-top:7px;letter-spacing:.02em}
 </style>
 </head>
 <body>
@@ -124,7 +125,7 @@ body.motion-off .press-theatre{display:none}
 </main>
 <footer class="footer"><div><span class="micro">Pragmatics, put into practice.</span></div><p>Pragmatic Rephraser · 中文语用改写实验<br>单文件 · 无外部字体与动画库 · 可选自配 AI　/　D 切换批注，R 清空<br>设计参考：<a href="https://github.com/OBdangshang07/AI_project/tree/main/Esthetics/Deepseek0820" target="_blank" rel="noopener noreferrer">未定之场</a>的纸墨排版语言；本版使用独立的纸页压印交互。</p></footer>
 </div>
-<div class="overlay" id="overlay"><section class="modal" role="dialog" aria-modal="true" aria-labelledby="settingsTitle"><div class="modal-head"><div><div class="micro">Connection / 配置</div><h2 id="settingsTitle">让表达，接入 AI。</h2></div><button class="close-modal" id="closeSettingsBtn" type="button" aria-label="关闭 AI 配置">×</button></div><p class="desc">支持 OpenAI 兼容的 Chat Completions 接口。模型是否可用取决于服务商和账户权限。<span class="privacy">只有点击 AI 生成或测试连接时，输入和密钥才会发送至下方配置的服务商地址。本站没有中转服务器。密钥默认仅在本次页面中保存，不要在公共设备上勾选记住。</span></p><div class="frow"><label for="f_preset">服务商 / PROVIDER</label><select id="f_preset"><option value="">选择服务商或自定义</option><option value="deepseek">DeepSeek</option><option value="zhipu">智谱 GLM</option><option value="moonshot">Kimi / Moonshot</option><option value="openai">OpenAI</option><option value="ark">豆包 / 火山方舟</option><option value="custom">自定义兼容接口</option></select></div><div class="frow"><label for="f_base">完整接口地址 / ENDPOINT</label><input id="f_base" type="url" placeholder="https://api.deepseek.com/chat/completions" spellcheck="false"></div><div class="frow"><label for="f_key">API KEY</label><div class="keywrap"><input id="f_key" type="password" placeholder="输入你自己的 API Key" autocomplete="off" spellcheck="false"><button class="keytoggle" type="button" id="keyToggle">显示</button></div></div><div class="frow"><label for="f_model">模型或接入点 / MODEL</label><input id="f_model" placeholder="deepseek-chat" spellcheck="false"></div><label class="remember"><input type="checkbox" id="rememberKey">在此浏览器记住密钥（明文 localStorage，可随时清除）</label><div class="teststat" id="testStat" role="status"></div><div class="mbtns"><button class="mbtn primary" type="button" id="saveBtn">保存配置</button><button class="mbtn" type="button" id="testBtn">测试连接（调用 API）</button><button class="mbtn danger" type="button" id="clearKeyBtn">清除配置</button></div></section></div>
+<div class="overlay" id="overlay"><section class="modal" role="dialog" aria-modal="true" aria-labelledby="settingsTitle"><div class="modal-head"><div><div class="micro">Connection / 配置</div><h2 id="settingsTitle">让表达，接入 AI。</h2></div><button class="close-modal" id="closeSettingsBtn" type="button" aria-label="关闭 AI 配置">×</button></div><p class="desc">支持 OpenAI 兼容的 Chat Completions 接口。模型是否可用取决于服务商和账户权限。<span class="privacy">只有点击 AI 生成或测试连接时，输入和密钥才会发送至下方配置的服务商地址。本站没有中转服务器。密钥默认仅在本次页面中保存，不要在公共设备上勾选记住。</span></p><div class="frow"><label for="f_preset">服务商 / PROVIDER</label><select id="f_preset"><option value="">选择服务商或自定义</option><option value="deepseek">DeepSeek</option><option value="zhipu">智谱 GLM</option><option value="moonshot">Kimi / Moonshot</option><option value="openai">OpenAI</option><option value="ark">豆包 / 火山方舟</option><option value="custom">自定义兼容接口</option></select></div><div class="frow"><label for="f_base">完整接口地址 / ENDPOINT</label><input id="f_base" type="url" placeholder="https://api.deepseek.com/chat/completions" spellcheck="false"></div><div class="frow"><label for="f_key">API KEY</label><div class="keywrap"><input id="f_key" type="password" placeholder="输入你自己的 API Key" autocomplete="off" spellcheck="false"><button class="keytoggle" type="button" id="keyToggle">显示</button></div></div><div class="frow"><label for="f_model">模型或接入点 / MODEL</label><input id="f_model" placeholder="选择服务商后自动填入当前模型名" spellcheck="false"><span class="model-hint">模型名以各服务商文档为准（如 DeepSeek 当前为 deepseek-v4-flash / deepseek-v4-pro）。模型会更新换代，填错时看「测试连接」的具体报错。</span></div><label class="remember"><input type="checkbox" id="rememberKey">在此浏览器记住密钥（明文 localStorage，可随时清除）</label><div class="teststat" id="testStat" role="status"></div><div class="mbtns"><button class="mbtn primary" type="button" id="saveBtn">保存配置</button><button class="mbtn" type="button" id="testBtn">测试连接（调用 API）</button><button class="mbtn danger" type="button" id="clearKeyBtn">清除配置</button></div></section></div>
 <div id="toast" role="status"></div>
 <script>
 const EXAMPLES = [
@@ -354,11 +355,11 @@ const toneMeta = {
   casual: {zh:'亲近随意',en:'CASUAL',strategy:'熟人语域 · In-group markers',tint:'#eddfc9'}
 };
 const presets = {
-  deepseek:{base:'https://api.deepseek.com/chat/completions',model:'deepseek-chat'},
-  zhipu:{base:'https://open.bigmodel.cn/api/paas/v4/chat/completions',model:'glm-4-flash'},
-  moonshot:{base:'https://api.moonshot.cn/v1/chat/completions',model:'moonshot-v1-8k'},
-  openai:{base:'https://api.openai.com/v1/chat/completions',model:'gpt-4o-mini'},
-  ark:{base:'https://ark.cn-beijing.volces.com/api/v3/chat/completions',model:''}
+  deepseek:{base:'https://api.deepseek.com/chat/completions',model:'deepseek-v4-flash',hint:'2026 年起 DeepSeek 主力为 V4 系列；旧名 deepseek-chat 已由 deepseek-v4-flash / deepseek-v4-pro 取代'},
+  zhipu:{base:'https://open.bigmodel.cn/api/paas/v4/chat/completions',model:'glm-4.7-flash',hint:'免费档可用 glm-4.7-flash 或 glm-4.5-flash；glm-4-flash 已属旧档但仍可用'},
+  moonshot:{base:'https://api.moonshot.ai/v1/chat/completions',model:'kimi-k2.6',hint:'当前为 Kimi K2/K3 系列（.cn 旧域名已迁移到 api.moonshot.ai）'},
+  openai:{base:'https://api.openai.com/v1/chat/completions',model:'gpt-4o-mini',hint:'按你的账号权限填写，如 gpt-4o-mini'},
+  ark:{base:'https://ark.cn-beijing.volces.com/api/v3/chat/completions',model:'',hint:'火山方舟填你控制台创建的接入点 ID（ep- 开头）'}
 };
 let config = {base:'',key:'',model:'',remember:false};
 try { const c = JSON.parse(localStorage.getItem('pr_config_v8') || 'null'); if(c && typeof c === 'object') config = {...config, ...c}; } catch {}
@@ -610,7 +611,7 @@ async function getAI(input,controller,settings){
   let timedOut=false;const timer=setTimeout(()=>{timedOut=true;controller.abort();},22000);
   try{
     const res=await fetch(endpoint(settings.base),{method:'POST',signal:controller.signal,headers:{'Content-Type':'application/json','Authorization':'Bearer '+settings.key},body:JSON.stringify({model:settings.model,temperature:.45,messages:[{role:'system',content:AI_BRIEF},{role:'user',content:input}]})});
-    if(!res.ok)throw Error(res.status===401?'API 密钥未通过验证':res.status===429?'服务商限流或额度不足':'服务商返回 HTTP '+res.status);
+    if(!res.ok)throw Error(res.status===401?'API 密钥未通过验证（检查 Key 是否填全、是否属于该服务商）':res.status===404?'接口地址不存在（检查 ENDPOINT 是否为服务商文档给出的完整 /chat/completions 地址）':res.status===429?'服务商限流或额度不足':'服务商返回 HTTP '+res.status);
     const body=await res.json();return parseReply(body?.choices?.[0]?.message?.content);
   }catch(e){if(timedOut)throw Error('AI 响应超过 22 秒');throw e;}finally{clearTimeout(timer);}
 }
@@ -662,7 +663,11 @@ function openSettings(){
 }
 function closeSettings(){$('overlay').classList.remove('show');document.body.style.overflow='';if(previousFocus?.isConnected)previousFocus.focus();}
 $('gearBtn').addEventListener('click',openSettings);$('closeSettingsBtn').addEventListener('click',closeSettings);$('overlay').addEventListener('click',e=>{if(e.target===$('overlay'))closeSettings();});
-$('f_preset').addEventListener('change',e=>{const p=presets[e.target.value];if(p){$('f_base').value=p.base;$('f_model').value=p.model;}});
+$('f_preset').addEventListener('change',e=>{
+  const p=presets[e.target.value];
+  if(p){$('f_base').value=p.base;$('f_model').value=p.model;$('testStat').textContent=p.hint||'';$('testStat').className='teststat';}
+});
+$('f_model').addEventListener('input',()=>$('testStat').textContent='');
 $('keyToggle').addEventListener('click',()=>{$('f_key').type=$('f_key').type==='password'?'text':'password';$('keyToggle').textContent=$('f_key').type==='password'?'显示':'隐藏';});
 $('saveBtn').addEventListener('click',()=>{
   const next={base:$('f_base').value.trim(),key:$('f_key').value.trim(),model:$('f_model').value.trim(),remember:$('rememberKey').checked};
