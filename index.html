@@ -721,12 +721,15 @@ function endpoint(raw){
   return url.href;
 }
 async function getAI(input,controller,settings){
-  let timedOut=false;const timer=setTimeout(()=>{timedOut=true;controller.abort();},22000);
+  let timedOut=false;const timer=setTimeout(()=>{timedOut=true;controller.abort();},35000);
   try{
     const res=await fetch(endpoint(settings.base),{method:'POST',signal:controller.signal,headers:{'Content-Type':'application/json','Authorization':'Bearer '+settings.key},body:JSON.stringify({model:settings.model,temperature:.45,messages:[{role:'system',content:AI_BRIEF},{role:'user',content:input}]})});
     if(!res.ok)throw Error(res.status===401?'API 密钥未通过验证（检查 Key 是否填全、是否属于该服务商）':res.status===404?'接口地址不存在（检查 ENDPOINT 是否为服务商文档给出的完整 /chat/completions 地址）':res.status===429?'服务商限流或额度不足':'服务商返回 HTTP '+res.status);
     const body=await res.json();return parseReply(body?.choices?.[0]?.message?.content);
-  }catch(e){if(timedOut)throw Error('AI 响应超过 22 秒');throw e;}finally{clearTimeout(timer);}
+  }catch(e){
+    if(e&&e.name==='AbortError')throw Error(timedOut?'AI 响应超过 35 秒，已自动改用离线规则':'请求被中断（可能页面已切换）');
+    throw e;
+  }finally{clearTimeout(timer);}
 }
 function localResult(raw){
   let core=stripTrail(stripLead(stripPunct(raw)));if(!core)core=stripPunct(raw);
