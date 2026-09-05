@@ -126,7 +126,7 @@ body.motion-off .press-theatre{display:none}
 </main>
 <footer class="footer"><div><span class="micro" data-i18n="footerLine3">Pragmatics, put into practice.</span></div><p><span data-i18n="footerMain">Pragmatic Rephraser · 中文语用改写实验</span><br><span data-i18n="footerLine2">单文件 · 无外部字体与动画库 · 可选自配 AI　/　D 切换批注，R 清空</span><br><span data-i18n="footerRef">设计参考：</span><a href="https://github.com/OBdangshang07/AI_project/tree/main/Esthetics/Deepseek0820" target="_blank" rel="noopener noreferrer">未定之场</a>的纸墨排版语言；本版使用独立的纸页压印交互。</p></footer>
 </div>
-<div class="overlay" id="overlay"><section class="modal" role="dialog" aria-modal="true" aria-labelledby="settingsTitle"><div class="modal-head"><div><div class="micro">Connection / 配置</div><h2 id="settingsTitle">让表达，接入 AI。</h2></div><button class="close-modal" id="closeSettingsBtn" type="button" aria-label="关闭 AI 配置">×</button></div><p class="desc">支持 OpenAI 兼容的 Chat Completions 接口。模型是否可用取决于服务商和账户权限。<span class="privacy">只有点击 AI 生成或测试连接时，输入和密钥才会发送至下方配置的服务商地址。本站没有中转服务器。密钥默认仅在本次页面中保存，不要在公共设备上勾选记住。</span></p><div class="frow"><label for="f_preset">服务商 / PROVIDER</label><select id="f_preset"><option value="">选择服务商或自定义</option><option value="deepseek">DeepSeek</option><option value="zhipu">智谱 GLM</option><option value="moonshot">Kimi / Moonshot</option><option value="openai">OpenAI</option><option value="ark">豆包 / 火山方舟</option><option value="custom">自定义兼容接口</option></select></div><div class="frow"><label for="f_base">完整接口地址 / ENDPOINT</label><input id="f_base" type="url" placeholder="https://api.deepseek.com/chat/completions" spellcheck="false"></div><div class="frow"><label for="f_key">API KEY</label><div class="keywrap"><input id="f_key" type="password" placeholder="输入你自己的 API Key" autocomplete="off" spellcheck="false"><button class="keytoggle" type="button" id="keyToggle">显示</button></div></div><div class="frow"><label for="f_model">模型或接入点 / MODEL</label><input id="f_model" placeholder="选择服务商后自动填入当前模型名" spellcheck="false"><span class="model-hint">模型名以各服务商文档为准（如 DeepSeek 当前为 deepseek-v4-flash / deepseek-v4-pro）。模型会更新换代，填错时看「测试连接」的具体报错。</span></div><label class="remember"><input type="checkbox" id="rememberKey">在此浏览器记住密钥（明文 localStorage，可随时清除）</label><div class="teststat" id="testStat" role="status"></div><div class="mbtns"><button class="mbtn primary" type="button" id="saveBtn">保存配置</button><button class="mbtn" type="button" id="testBtn">测试连接（调用 API）</button><button class="mbtn danger" type="button" id="clearKeyBtn">清除配置</button></div></section></div>
+<div class="overlay" id="overlay"><section class="modal" role="dialog" aria-modal="true" aria-labelledby="settingsTitle"><div class="modal-head"><div><div class="micro">Connection / 配置</div><h2 id="settingsTitle">让表达，接入 AI。</h2></div><button class="close-modal" id="closeSettingsBtn" type="button" aria-label="关闭 AI 配置">×</button></div><p class="desc">支持 OpenAI 兼容的 Chat Completions 接口。模型是否可用取决于服务商和账户权限。<span class="privacy">只有点击 AI 生成或测试连接时，输入和密钥才会发送至下方配置的服务商地址。本站没有中转服务器。密钥默认仅在本次页面中保存，不要在公共设备上勾选记住。</span></p><div class="frow"><label for="f_preset">服务商 / PROVIDER</label><select id="f_preset"><option value="">选择服务商或自定义</option><option value="deepseek">DeepSeek</option><option value="zhipu">智谱 GLM</option><option value="moonshot">Kimi / Moonshot</option><option value="openai">OpenAI</option><option value="ark">豆包 / 火山方舟</option><option value="custom">自定义兼容接口</option></select></div><div class="frow"><label for="f_base">完整接口地址 / ENDPOINT</label><input id="f_base" type="url" placeholder="https://api.deepseek.com/chat/completions" spellcheck="false"></div><div class="frow"><label for="f_key">API KEY</label><div class="keywrap"><input id="f_key" type="password" placeholder="输入你自己的 API Key" autocomplete="off" spellcheck="false"><button class="keytoggle" type="button" id="keyToggle">显示</button></div></div><div class="frow"><label for="f_model">模型或接入点 / MODEL</label><input id="f_model" placeholder="选择服务商后自动填入当前模型名" spellcheck="false"><span class="model-hint">模型名以各服务商文档为准（如 DeepSeek 当前为 deepseek-v4-flash / deepseek-v4-pro）。模型会更新换代，填错时看「测试连接」的具体报错。</span></div><label class="remember"><input type="checkbox" id="rememberKey">在此浏览器记住密钥（明文 localStorage，可随时清除）</label><div class="teststat" id="testStat" role="status"></div><div class="mbtns"><div class="model-fetch"><button class="mbtn" type="button" id="fetchModelsBtn" data-i18n="fetchModels">获取可用模型</button><span class="model-list-wrap"><select id="fetchedModels" size="1" hidden aria-label="可用模型"></select><span id="fetchHint" class="model-hint"></span></span></div><div class="mbtns"><button class="mbtn primary" type="button" id="saveBtn">保存配置</button><button class="mbtn" type="button" id="testBtn">测试连接（调用 API）</button><button class="mbtn danger" type="button" id="clearKeyBtn">清除配置</button></div></div></section></div>
 <div id="toast" role="status"></div>
 <script>
 const EXAMPLES = [
@@ -386,7 +386,7 @@ const UI = {
     "rememberKey": "在此浏览器记住密钥（明文 localStorage，可随时清除）", "saveBtn": "保存配置", "testBtn": "测试连接（调用 API）", "clearKeyBtn": "清除配置", "showKey": "显示", "hideKey": "隐藏",
     "settingsFileHint": "当前是 file:// 打开，浏览器会拦截对 AI 的跨域请求。请在项目目录运行 python -m http.server 8765，改用 http://127.0.0.1:8765/index.html 打开后 AI 即可用。",
     "errEmpty": "请先写下一句中文。", "errTooLong": "请输入 160 字以内、包含中文的单句。",
-    "footerLine3": "Pragmatics, put into practice.", "footerMain": "Pragmatic Rephraser · 中文语用改写实验", "footerLine2": "单文件 · 无外部字体与动画库 · 可选自配 AI　/　D 切换批注，R 清空", "footerRef": "设计参考："
+    "footerLine3": "Pragmatics, put into practice.", "footerMain": "Pragmatic Rephraser · 中文语用改写实验", "footerLine2": "单文件 · 无外部字体与动画库 · 可选自配 AI　/　D 切换批注，R 清空", "fetchModels":"获取可用模型","fetchPrompt":"填好 API Key 后可一键读取该服务商的模型并填入","fetching":"正在读取该服务商可用模型…","fetchErrNoModels":"该服务商没有 /models 接口（请手动填模型，或火山方舟用接入点 ID）","fetchAuto":"已自动填入 ","fetchChoose":"可再点下拉切换。","fetchList":"（已过滤图像/嵌入等）选择后填入：","footerRef": "设计参考："
   },
   en: {
     "brandTitle": "Pragmatic Press", "navLab": "Expression Lab", "motionOn": "Motion On", "motionOff": "Motion Off",
@@ -428,7 +428,7 @@ const UI = {
     "rememberKey": "Remember key in this browser (plain localStorage; clear anytime)", "saveBtn": "Save config", "testBtn": "Test connection (calls API)", "clearKeyBtn": "Clear config", "showKey": "Show", "hideKey": "Hide",
     "settingsFileHint": "Opened as file:// — browsers block cross-origin AI calls. In the project folder run  python -m http.server 8765  and open  http://127.0.0.1:8765/index.html  to enable AI.",
     "errEmpty": "Please write a Chinese sentence first.", "errTooLong": "One Chinese sentence, up to 160 characters.",
-    "footerLine3": "Pragmatics, put into practice.", "footerMain": "Pragmatic Rephraser · a Chinese pragmatics experiment", "footerLine2": "Single file · no fonts or animation libraries · optional BYO AI　/　D notes, R clear", "footerRef": "Design reference: "
+    "footerLine3": "Pragmatics, put into practice.", "footerMain": "Pragmatic Rephraser · a Chinese pragmatics experiment", "footerLine2": "Single file · no fonts or animation libraries · optional BYO AI　/　D notes, R clear", "fetchModels":"Fetch available models","fetchPrompt":"Enter your API key, then fetch this provider’s models and auto-fill","fetching":"Reading this provider’s available models…","fetchErrNoModels":"This provider has no /models endpoint (fill the model manually, or use an Ark endpoint ID)","fetchAuto":"Auto-filled ","fetchChoose":"— you can switch from the dropdown.","fetchList":" (image/embedding filtered). Pick one to fill: ","footerRef": "Design reference: "
   }
 };
 function t(key) { const s = (UI[uiLang] || UI.zh)[key]; return s === undefined ? key : s; }
@@ -721,13 +721,22 @@ function endpoint(raw){
   return url.href;
 }
 async function getAI(input,controller,settings){
-  let timedOut=false;const timer=setTimeout(()=>{timedOut=true;controller.abort();},35000);
+  let timedOut=false;const timer=setTimeout(()=>{timedOut=true;controller.abort();},40000);
   try{
-    const res=await fetch(endpoint(settings.base),{method:'POST',signal:controller.signal,headers:{'Content-Type':'application/json','Authorization':'Bearer '+settings.key},body:JSON.stringify({model:settings.model,temperature:.45,messages:[{role:'system',content:AI_BRIEF},{role:'user',content:input}]})});
+    // 请求体：附带 thinking 关闭 + 多 provider 兼容。OpenAI/DeepSeek/智谱/Kimi 兼容型会忽略未知字段。
+    const payload={model:settings.model,temperature:.2,messages:[{role:'system',content:AI_BRIEF},{role:'user',content:input}],thinking:{type:'disabled'}};
+    const res=await fetch(endpoint(settings.base),{method:'POST',signal:controller.signal,headers:{'Content-Type':'application/json','Authorization':'Bearer '+settings.key},body:JSON.stringify(payload)});
     if(!res.ok)throw Error(res.status===401?'API 密钥未通过验证（检查 Key 是否填全、是否属于该服务商）':res.status===404?'接口地址不存在（检查 ENDPOINT 是否为服务商文档给出的完整 /chat/completions 地址）':res.status===429?'服务商限流或额度不足':'服务商返回 HTTP '+res.status);
-    const body=await res.json();return parseReply(body?.choices?.[0]?.message?.content);
+    const body=await res.json();
+    const msg=body?.choices?.[0]?.message;
+    // 思考模型（如 DeepSeek V4）可能把内容放在 reasoning_content：两者都尝试解析，取能通过校验的那个
+    const candidates=[msg?.content,msg?.reasoning_content].filter(x=>typeof x==='string'&&x.trim());
+    if(!candidates.length)throw Error('AI 返回为空（模型未输出可读正文）');
+    let lastErr;
+    for(const c of candidates){try{return parseReply(c);}catch(e){lastErr=e;}}
+    throw lastErr||Error('AI 返回无法解析');
   }catch(e){
-    if(e&&e.name==='AbortError')throw Error(timedOut?'AI 响应超过 35 秒，已自动改用离线规则':'请求被中断（可能页面已切换）');
+    if(e&&e.name==='AbortError')throw Error(timedOut?'AI 响应超过 40 秒，已自动改用离线规则':'请求被中断（可能页面已切换）');
     throw e;
   }finally{clearTimeout(timer);}
 }
@@ -783,7 +792,42 @@ $('f_preset').addEventListener('change',e=>{
   const p=presets[e.target.value];
   if(p){$('f_base').value=p.base;$('f_model').value=p.model;$('testStat').textContent=p.hint||'';$('testStat').className='teststat';}
 });
-$('f_model').addEventListener('input',()=>$('testStat').textContent='');
+$('f_model').addEventListener('input',()=>$('testStat').textContent='');$('fetchModelsBtn').addEventListener('click',async()=>{
+  const base=$('f_base').value.trim(),key=$('f_key').value.trim(),btn=$('fetchModelsBtn'),hint=$('fetchHint'),sel=$('fetchedModels');
+  hint.textContent='';sel.hidden=true;
+  try{
+    if(!key)throw Error('请先填入 API Key');
+    const modelsUrl=await modelsEndpoint(base);
+    btn.disabled=true;hint.textContent='正在读取该服务商可用模型…';
+    const ctrl=new AbortController(),timer=setTimeout(()=>ctrl.abort(),15000);
+    try{
+      const res=await fetch(modelsUrl,{method:'GET',signal:ctrl.signal,headers:{Authorization:'Bearer '+key}});
+      if(!res.ok)throw Error(res.status===401?'密钥未通过验证':res.status===404?'该服务商没有 /models 接口（请手动填模型，或选火山方舟用接入点 ID）':'HTTP '+res.status);
+      const body=await res.json();
+      let list=Array.isArray(body?.data)?body.data:Array.isArray(body?.models)?body.models:[];
+      const names=list.map(m=>typeof m==='string'?m:m?.id).filter(x=>typeof x==='string'&&x.trim());
+      // 过滤掉视觉/嵌入/音频等非对话模型，保留文本/推理
+      const chatish=names.filter(n=>!/image|vision|embed|tts|asr|rerank|audio|moderation|whisper/i.test(n));
+      const final=chatish.length?chatish:names;
+      if(!final.length)throw Error('该服务商未返回模型列表');
+      sel.replaceChildren();
+      for(const n of final.slice(0,60)){const o=document.createElement('option');o.value=n;o.textContent=n;sel.append(o);}
+      sel.hidden=false;hint.textContent='共 '+final.length+' 个（已过滤图像/嵌入等）。选择后填入：';
+      sel.onchange=()=>{$('f_model').value=sel.value;hint.textContent='已填入：'+sel.value;};
+      // 自动选中第一个可用的对话模型并填入，便于“只填 Key”
+      $('f_model').value=final[0];hint.textContent='已自动填入 '+final[0]+'；可再点下拉切换。';
+    }finally{clearTimeout(timer);}
+  }catch(e){hint.textContent=e.message;hint.className='model-hint fetch-err';}
+  finally{btn.disabled=false;}
+});
+// 由 chat/completions 地址推导 models 地址；失败则抛错由调用方提示
+function modelsEndpoint(chatUrlRaw){
+  const u=new URL(chatUrlRaw);                     // 无效 URL 会直接抛 TypeError，交由外层 catch 提示
+  if(u.protocol!=='https:')throw Error('为保护密钥，请使用 HTTPS 接口');
+  const path=u.pathname.replace(/\/chat\/completions\/?$/,'');
+  u.pathname=(path||'')+'/models';
+  return u.href;
+}
 $('keyToggle').addEventListener('click',()=>{$('f_key').type=$('f_key').type==='password'?'text':'password';$('keyToggle').textContent=$('f_key').type==='password'?'显示':'隐藏';});
 $('saveBtn').addEventListener('click',()=>{
   const next={base:$('f_base').value.trim(),key:$('f_key').value.trim(),model:$('f_model').value.trim(),remember:$('rememberKey').checked};
@@ -799,13 +843,15 @@ $('testBtn').addEventListener('click',async()=>{
   finally{clearTimeout(timer);button.disabled=false;}
 });
 document.addEventListener('keydown',e=>{
+  // 绝不拦截带修饰键的组合：Ctrl/Cmd/Alt 用于复制粘贴/刷新等系统行为，一律放行
+  if(e.ctrlKey||e.metaKey||e.altKey)return;
   if($('overlay').classList.contains('show')){
     if(e.key==='Escape'){e.preventDefault();closeSettings();return;}
     if(e.key==='Tab'){const els=[...$('overlay').querySelectorAll('button,input,select,a[href]')].filter(x=>!x.disabled);const first=els[0],last=els[els.length-1];if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}}return;
   }
-  if((e.ctrlKey||e.metaKey)&&e.key==='Enter'){e.preventDefault();run();return;}
-  if(e.ctrlKey||e.metaKey||e.altKey||e.target.closest('input,textarea,select,[contenteditable=true]'))return;
-  if(e.key.toLowerCase()==='d'&&latest)$('notesBtn').click();if(e.key.toLowerCase()==='r')clearAll();
+  if(e.target.closest('input,textarea,select,[contenteditable=true]'))return;
+  if(e.key.toLowerCase()==='d'&&latest)$('notesBtn').click();
+  if(e.key.toLowerCase()==='r')clearAll();
 });
 $('langToggle').addEventListener('click',()=>{uiLang=uiLang==='zh'?'en':'zh';try{localStorage.setItem('pr_lang_v8',uiLang);}catch{}
 document.documentElement.lang=uiLang;applyStatic();busy($('generateBtn').disabled);notesLabel();copyAllLabel();updateDynamicUI();
