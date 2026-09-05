@@ -15,7 +15,6 @@ details.call .cid{font-size:.74em;color:#999;font-family:Consolas,monospace;word
 details.call pre{margin:8px 14px 12px;padding:10px 12px;background:#2d2a24;color:#e8e2d5;border-radius:5px;overflow-x:auto;font-size:.85em;line-height:1.5;font-family:Consolas,"Courier New",monospace;white-space:pre-wrap;word-break:break-word}
 .callline{margin:8px 0 8px 20px;border:1px solid #ddd;border-left:3px solid #aaa;background:#f7f7f5;border-radius:5px;font-size:.88em;padding:7px 12px;font-weight:600;color:#333}
 .callline code{font-family:Consolas,"Courier New",monospace;color:#1a5fb4;font-size:.95em}
-.callline .omit{font-weight:400;color:#888;font-style:italic}
 .note{margin:14px 0;padding:6px 14px;background:#f6f6f6;border-left:3px solid #bbb;font-size:.88em;color:#555}
 .ts{font-weight:400;font-size:.8em;color:#888}
 @media print{.bubble,details.call{break-inside:avoid}}
@@ -56,7 +55,7 @@ console.log(JSON.stringify(result, null, 2));</pre></details>
 <p class="note">[User ran the command /permission danger-full-access; the approval policy changed from &quot;ask&quot; to &quot;never&quot;.]</p>
 <div class="who">User</div><div class="bubble user">contine</div>
 <div class="who">AI</div><div class="bubble ai">现在开始落盘核心页面：采用双栏工作台结构，左侧是例句库，主区包含输入、语用分类证据和四种并排改写卡片；规则引擎会先剥离已有的请、麻烦、好吗等表层标记，再按类别生成新的礼貌层级，避免重复堆叠。</div>
-<div class="callline">Tool call · <code>run_code</code> — Write offline pragmatic rephraser app <span class="omit">(file write; content omitted)</span></div>
+<div class="callline">Tool call · <code>run_code</code> — Write offline pragmatic rephraser app</div>
 <div class="who">AI</div><div class="bubble ai">页面已写入 `index.html`。接下来做第一轮验证：先渲染桌面和移动视口，确认初始例句、四张结果卡、文字层级和窄屏换行都正常，再针对规则边界做几组交互检查。</div>
 <details class="call"><summary>Tool call · <code>run_code</code> — Render desktop and mobile previews</summary><div class="cid">call_c4vQUqfL6VYWPvxFR3lJphTP|fc_021b0ebf23af1028016a9bfb5a2b1487d097a0507e9f2c05e8</div><pre class="code">const results = await Promise.all([
   tools.vision_html_screenshot({ source: &quot;D:\\新建文件夹\\index.html&quot;, width: 1440, height: 900, fullPage: false }),
@@ -89,7 +88,7 @@ console.log(JSON.stringify(result, null, 2));</pre></details>
 <div class="who">AI</div><div class="bubble ai">已定位到唯一的脚本语法错误：复制按钮的 HTML 拼接中，属性结束引号没有被 JavaScript 字符串正确转义，导致整个初始化函数在这里停止。现在只修这个拼接点，然后再次做语法检查和截图验证。</div>
 <details class="call"><summary>Tool call · <code>run_code</code> — Find malformed HTML string concatenations</summary><div class="cid">call_fLExALUYqJ6T8DOlX5WmDDrq|fc_021b0ebf23af1028016a9bfbc68e2887d08f3d4d70c71ba992</div><pre class="code">const result = await tools.grep({ pattern: &quot;\\+ \\\&quot;\\\&quot;&gt;&lt;&quot;, path: &quot;index.html&quot; });
 console.log(JSON.stringify(result, null, 2));</pre></details>
-<div class="callline">Tool call · <code>run_code</code> — Fix copy button string escaping <span class="omit">(file write; content omitted)</span></div>
+<div class="callline">Tool call · <code>run_code</code> — Fix copy button string escaping</div>
 <details class="call"><summary>Tool call · <code>run_code</code> — Validate corrected JavaScript syntax</summary><div class="cid">call_EX3doH9SHfb44BXi26NvgAX7|fc_021b0ebf23af1028016a9bfbd7c6ec87d096a929b3f8037655</div><pre class="code">const result = await tools.pwsh({ command: &quot;node -e &#x27;const fs=require(\&quot;fs\&quot;),vm=require(\&quot;vm\&quot;);const html=fs.readFileSync(\&quot;index.html\&quot;,\&quot;utf8\&quot;);const match=html.match(/&lt;script&gt;([\\s\\S]*)&lt;\\/script&gt;/);try{new vm.Script(match[1],{filename:\&quot;embedded.js\&quot;});console.log(\&quot;SCRIPT_OK\&quot;)}catch(error){console.error(error.stack);process.exitCode=1}&#x27;&quot;, description: &quot;Validate corrected JavaScript syntax&quot;, workdir: &quot;D:\\新建文件夹&quot; });
 console.log(JSON.stringify(result, null, 2));</pre></details>
 <div class="who">AI</div><div class="bubble ai">语法校验已通过。现在重新加载两个视口，重点确认初始例句会真正进入输入框、四张卡片能够渲染，以及移动端结果区按单列自然延展。</div>
@@ -280,7 +279,7 @@ console.log(state);</pre></details>
 <details class="call"><summary>Tool call · <code>run_code</code> — Examine post-click CUA screenshot</summary><div class="cid">call_vIYUafETGQGRKvv0TuHmHQLg|fc_021b0ebf23af1028016a9bffc0890887d0aaf58c288e49c628</div><pre class="code">const result = await tools.read_image({ file_path: &quot;C:\\Users\\JH Z\\.dsh\\cua-pre\\artifacts\\cua-frame-20260905-194043.jpg&quot; });
 console.log(JSON.stringify(result.image, null, 2));</pre></details>
 <div class="who">AI</div><div class="bubble ai">The CUA interaction worked despite one coordinate-worker warning: selecting `这里太吵了` updated the input, category badge, evidence tokens, and all four complaint variants. I also found two rule-quality issues in code review before finalizing: suggestion inputs could gain an unwanted space, and very-polite refusals could lose the negation; I’m correcting both and then will rerun the browser checks.</div>
-<div class="callline">Tool call · <code>run_code</code> — Fix suggestion and refusal phrasing rules <span class="omit">(file write; content omitted)</span></div>
+<div class="callline">Tool call · <code>run_code</code> — Fix suggestion and refusal phrasing rules</div>
 <details class="call"><summary>Tool call · <code>run_code</code> — Validate final script and file encoding</summary><div class="cid">call_JdBYN7kgl0qBJqzzMH4SFEwk|fc_021b0ebf23af1028016a9c000f17f887d0b8f099f3aee4e91f</div><pre class="code">const result = await tools.pwsh({ command: &quot;node -e &#x27;const fs=require(\&quot;fs\&quot;),vm=require(\&quot;vm\&quot;);const html=fs.readFileSync(\&quot;index.html\&quot;,\&quot;utf8\&quot;);const match=html.match(/&lt;script&gt;([\\s\\S]*)&lt;\\/script&gt;/);new vm.Script(match[1],{filename:\&quot;embedded.js\&quot;});console.log(\&quot;SCRIPT_OK\&quot;);console.log(\&quot;BOM=\&quot;+fs.readFileSync(\&quot;index.html\&quot;).subarray(0,3).toString(\&quot;hex\&quot;))&#x27;&quot;, description: &quot;Validate final script and file encoding&quot;, workdir: &quot;D:\\新建文件夹&quot; });
 console.log(JSON.stringify(result, null, 2));</pre></details>
 <details class="call"><summary>Tool call · <code>run_code</code> — Reload updated local app in Chrome</summary><div class="cid">call_5bd6Sv5grk6i6soo0fZL3lMU|fc_021b0ebf23af1028016a9c001b687887d083eeb3e3deb9ac55</div><pre class="code">const result = await tools.key({ text: &quot;ctrl+r&quot;, app_ref: { window_id: 2234234 } });
@@ -294,17 +293,17 @@ console.log(result);</pre></details>
 <details class="call"><summary>Tool call · <code>run_code</code> — Inspect refreshed visible browser output</summary><div class="cid">call_pyYlRC2QWwQcPcBHWk3SzLZv|fc_021b0ebf23af1028016a9c003eeff087d08670e4c688377c43</div><pre class="code">const result = await tools.read_image({ file_path: &quot;C:\\Users\\JH Z\\.dsh\\cua-pre\\artifacts\\cua-frame-20260905-194249.jpg&quot; });
 console.log(JSON.stringify(result.image, null, 2));</pre></details>
 <div class="who">AI</div><div class="bubble ai">The visible CUA frame now confirms the local page in Chrome, and the complaint example click produced the expected `抱怨` state. I’m adding one temporary external browser-test harness to exercise every built-in category and the marker-deduplication path; it will be removed after the run so the deliverable remains only `index.html`.</div>
-<div class="callline">Tool call · <code>run_code</code> — Create temporary browser interaction test <span class="omit">(file write; content omitted)</span></div>
+<div class="callline">Tool call · <code>run_code</code> — Create temporary browser interaction test</div>
 <details class="call"><summary>Tool call · <code>run_code</code> — Run browser behavior assertions</summary><div class="cid">call_SQZ183SRkCo7Jkbw67y3eUx7|fc_021b0ebf23af1028016a9c0086c21887d0ac3516f48df821de</div><pre class="code">const result = await tools.pwsh({ command: &quot;node \&quot;C:\\Users\\JH Z\\AppData\\Local\\Temp\\pragmatic-rephraser-cdp-test.cjs\&quot;&quot;, description: &quot;Run browser behavior assertions&quot;, workdir: &quot;D:\\新建文件夹&quot;, timeoutMs: 120000 });
 console.log(JSON.stringify(result, null, 2));</pre></details>
 <div class="who">AI</div><div class="bubble ai">The temporary test harness itself has the same over-escaping issue from being generated through a nested string layer; the application is still untouched. I’ll correct the harness source directly, rerun it, and then remove the temporary file.</div>
 <details class="call"><summary>Tool call · <code>run_code</code> — Inspect temporary test harness source</summary><div class="cid">call_kWvejhxxkh8ApdpTSH45gt57|fc_021b0ebf23af1028016a9c0091273087d09ccb4c77bb45570d</div><pre class="code">const result = await tools.read({ file_path: &quot;C:\\Users\\JH Z\\AppData\\Local\\Temp\\pragmatic-rephraser-cdp-test.cjs&quot;, offset: 76, limit: 28 });
 console.log(JSON.stringify(result, null, 2));</pre></details>
-<div class="callline">Tool call · <code>run_code</code> — Rewrite temporary browser interaction test <span class="omit">(file write; content omitted)</span></div>
+<div class="callline">Tool call · <code>run_code</code> — Rewrite temporary browser interaction test</div>
 <details class="call"><summary>Tool call · <code>run_code</code> — Run browser behavior assertions</summary><div class="cid">call_PM4bQ3d3FwaoqtuogAz4o66S|fc_021b0ebf23af1028016a9c00cf37fc87d0b1995e0ab9a44a38</div><pre class="code">const result = await tools.pwsh({ command: &quot;node \&quot;C:\\Users\\JH Z\\AppData\\Local\\Temp\\pragmatic-rephraser-cdp-test.cjs\&quot;&quot;, description: &quot;Run browser behavior assertions&quot;, workdir: &quot;D:\\新建文件夹&quot;, timeoutMs: 120000 });
 console.log(JSON.stringify(result, null, 2));</pre></details>
 <div class="who">AI</div><div class="bubble ai">The browser assertions all pass: all six built-in cases classify correctly, indirect hints contain no forbidden direct-request markers, marker duplication is absent, and the complaint example click works. One small polish remains: a source ending in `好吗？` should keep that natural frame in the polite variant instead of collapsing it to a bare `？`; I’m preserving the existing question form once.</div>
-<div class="callline">Tool call · <code>run_code</code> — Preserve natural question framing once <span class="omit">(file write; content omitted)</span></div>
+<div class="callline">Tool call · <code>run_code</code> — Preserve natural question framing once</div>
 <details class="call"><summary>Tool call · <code>run_code</code> — Run final syntax and browser tests</summary><div class="cid">call_qXmws1iR1pLnCULVwqn0csvT|fc_021b0ebf23af1028016a9c00f949c087d0b8709ad93e651976</div><pre class="code">const results = await Promise.all([
   tools.pwsh({ command: &quot;node -e &#x27;const fs=require(\&quot;fs\&quot;),vm=require(\&quot;vm\&quot;);const html=fs.readFileSync(\&quot;index.html\&quot;,\&quot;utf8\&quot;);const match=html.match(/&lt;script&gt;([\\s\\S]*)&lt;\\/script&gt;/);new vm.Script(match[1],{filename:\&quot;embedded.js\&quot;});console.log(\&quot;SCRIPT_OK\&quot;);console.log(\&quot;BOM=\&quot;+fs.readFileSync(\&quot;index.html\&quot;).subarray(0,3).toString(\&quot;hex\&quot;))&#x27;&quot;, description: &quot;Recheck final script and encoding&quot;, workdir: &quot;D:\\新建文件夹&quot;, timeoutMs: 120000 }),
   tools.pwsh({ command: &quot;node \&quot;C:\\Users\\JH Z\\AppData\\Local\\Temp\\pragmatic-rephraser-cdp-test.cjs\&quot;&quot;, description: &quot;Rerun browser behavior assertions&quot;, workdir: &quot;D:\\新建文件夹&quot;, timeoutMs: 120000 })
@@ -367,7 +366,7 @@ console.log(JSON.stringify({ todo, matches, file }, null, 2));</pre></details>
   { content: &quot;Record the defect fixes in project memory&quot;, status: &quot;pending&quot; }
 ] });
 console.log(JSON.stringify(result, null, 2));</pre></details>
-<div class="callline">Tool call · <code>run_code</code> — Expand speech-act detection evidence rules <span class="omit">(file write; content omitted)</span></div>
+<div class="callline">Tool call · <code>run_code</code> — Expand speech-act detection evidence rules</div>
 <h2 id="turn-8">Turn 8 <span class="ts">2026-09-05 20:37</span></h2>
 <div class="who">User</div><div class="bubble user">continue</div>
 <h2 id="turn-9">Turn 9 <span class="ts">2026-09-05 20:37</span></h2>
@@ -379,14 +378,14 @@ console.log(JSON.stringify(result, null, 2));</pre></details>
 <h2 id="turn-12">Turn 12 <span class="ts">2026-09-05 20:48</span></h2>
 <div class="who">User</div><div class="bubble user">continue</div>
 <div class="who">AI</div><div class="bubble ai">Continuing with the template separation. Next: borrowing-specific indirect hints, evasive refusal hints, and a hard invariant guard that replaces any indirect output still containing imperative phrasing.</div>
-<div class="callline">Tool call · <code>run_code</code> — Add borrowing and evasive refusal hints <span class="omit">(file write; content omitted)</span></div>
+<div class="callline">Tool call · <code>run_code</code> — Add borrowing and evasive refusal hints</div>
 <div class="who">AI</div><div class="bubble ai">Now adding the imperative-detection guard helpers and wiring them into the variant builder so every indirect hint is enforced to be off-record.</div>
-<div class="callline">Tool call · <code>run_code</code> — Enforce off-record invariant on indirect hints <span class="omit">(file write; content omitted)</span></div>
+<div class="callline">Tool call · <code>run_code</code> — Enforce off-record invariant on indirect hints</div>
 <div class="who">AI</div><div class="bubble ai">Wiring complete. Now I’ll syntax-check the embedded script and verify the header encoding before running the browser regression on the reported defect sentences.</div>
 <details class="call"><summary>Tool call · <code>run_code</code> — Validate patched embedded script</summary><div class="cid">call_00_UKZaEOl0uKyNeJjD1pVk4662</div><pre class="code">const result = await tools.pwsh({ command: &quot;node -e &#x27;const fs=require(\&quot;fs\&quot;),vm=require(\&quot;vm\&quot;);const html=fs.readFileSync(\&quot;index.html\&quot;,\&quot;utf8\&quot;);const match=html.match(/&lt;script&gt;([\\s\\S]*)&lt;\\/script&gt;/);new vm.Script(match[1],{filename:\&quot;embedded.js\&quot;});console.log(\&quot;SCRIPT_OK\&quot;);console.log(\&quot;BOM=\&quot;+fs.readFileSync(\&quot;index.html\&quot;).subarray(0,3).toString(\&quot;hex\&quot;))&#x27;&quot;, description: &quot;Validate patched embedded script&quot;, workdir: &quot;D:\\新建文件夹&quot;, timeoutMs: 120000 });
 console.log(JSON.stringify(result, null, 2));</pre></details>
 <div class="who">AI</div><div class="bubble ai">Syntax and encoding are clean. Writing a temporary headless-Chrome regression suite covering the three reported defects plus the built-in examples; it will be deleted after the run.</div>
-<div class="callline">Tool call · <code>run_code</code> — Create regression suite for defect cases <span class="omit">(file write; content omitted)</span></div>
+<div class="callline">Tool call · <code>run_code</code> — Create regression suite for defect cases</div>
 <div class="who">AI</div><div class="bubble ai">Running the regression suite against the patched file now.</div>
 <details class="call"><summary>Tool call · <code>run_code</code> — Run defect regression assertions</summary><div class="cid">call_00_ET_18MtiUvoBeOoNWRMMkXS6285</div><pre class="code">const result = await tools.pwsh({ command: &quot;node \&quot;C:\\Users\\JH Z\\AppData\\Local\\Temp\\pragmatic-rephraser-fix-test.cjs\&quot;&quot;, description: &quot;Run defect regression assertions&quot;, workdir: &quot;D:\\新建文件夹&quot;, timeoutMs: 120000 });
 console.log(JSON.stringify(result, null, 2));</pre></details>
@@ -452,7 +451,7 @@ console.log(JSON.stringify(results, null, 2));</pre></details>
 ]);
 console.log(JSON.stringify(results, null, 2));</pre></details>
 <div class="who">AI</div><div class="bubble ai">I’m replacing the page with an extended single-file version that keeps the offline engine, adds the LLM settings panel and fallback path, highlights rewrite devices in-card, adds the Casual bonus tone, and includes copy-all.</div>
-<div class="callline">Tool call · <code>run_code</code> — Write extended LLM and highlighting app <span class="omit">(file write; content omitted)</span></div>
+<div class="callline">Tool call · <code>run_code</code> — Write extended LLM and highlighting app</div>
 <div class="who">AI</div><div class="bubble ai">The extended version has been written to `index.html`. I’ll now run syntax, BOM, offline-regression, fallback, and DOM checks before finalizing.</div>
 <details class="call"><summary>Tool call · <code>run_code</code> — Update progress before verification</summary><div class="cid">sg_call_d2986d3dfe1ff_0|fc_d2986d3dfe1ff_0</div><pre class="code">const result = await tools.todo_write({ todos: [
   { content: &quot;Inspect current single-file UI and rewrite engine&quot;, status: &quot;completed&quot; },
@@ -471,9 +470,9 @@ console.log(JSON.stringify(result, null, 2));</pre></details>
 ]);
 console.log(JSON.stringify(results, null, 2));</pre></details>
 <div class="who">AI</div><div class="bubble ai">I found no external scripts, stylesheets, or image dependencies; the URL hits are only editable provider presets. I’ll now run a headless-Chrome DOM suite that checks the fifth card, device highlights, copy-all presence, settings/localStorage, and automatic fallback from a deliberately bad LLM config.</div>
-<div class="callline">Tool call · <code>run_code</code> — Create extension regression test suite <span class="omit">(file write; content omitted)</span></div>
+<div class="callline">Tool call · <code>run_code</code> — Create extension regression test suite</div>
 <div class="who">AI</div><div class="bubble ai">The temporary regression script failed only because its own generated source used nested backticks. I’m rewriting that harness without nested template literals, then rerunning the extension checks against `index.html`.</div>
-<div class="callline">Tool call · <code>run_code</code> — Rewrite extension regression test suite <span class="omit">(file write; content omitted)</span></div>
+<div class="callline">Tool call · <code>run_code</code> — Rewrite extension regression test suite</div>
 <div class="who">AI</div><div class="bubble ai">The regression harness is ready. I’m running it now to confirm the settings panel, fallback behavior, fifth card, highlighting, and copy-all integration.</div>
 <details class="call"><summary>Tool call · <code>run_code</code> — Run extension regression checks</summary><div class="cid">sg_call_1f4888cda00b3_0|fc_1f4888cda00b3_0</div><pre class="code">const result = await tools.pwsh({ command: &quot;node \&quot;C:\\Users\\JH Z\\AppData\\Local\\Temp\\pragmatic-rephraser-extension-test.cjs\&quot;&quot;, description: &quot;Run extension regression checks&quot;, workdir: &quot;D:\\新建文件夹&quot;, timeoutMs: 120000 });
 console.log(JSON.stringify(result, null, 2));</pre></details>
@@ -518,12 +517,12 @@ const [head, body, scriptAnchors] = await Promise.all([
 ]);
 console.log(JSON.stringify({ todo, head, body, scriptAnchors }, null, 2));</pre></details>
 <div class="who">AI</div><div class="bubble ai">I’m applying the paper-and-ink redesign now as a full presentation-layer rebuild inside the same single `index.html`, keeping the existing classifier, LLM settings, fallback, highlighting, Casual tone, and copy-all behavior.</div>
-<div class="callline">Tool call · <code>run_code</code> — Rewrite paper-and-ink presentation layer <span class="omit">(file write; content omitted)</span></div>
+<div class="callline">Tool call · <code>run_code</code> — Rewrite paper-and-ink presentation layer</div>
 <div class="who">AI</div><div class="bubble ai">The paper-and-ink presentation layer has been written. I’ll now run syntax/BOM checks and the preserved-behavior DOM regression, including motion-layer hooks, live readout, annotation toggle, and clear shortcut.</div>
 <details class="call"><summary>Tool call · <code>run_code</code> — Validate paper ink script and assets</summary><div class="cid">sg_call_09657edc398aa_0|fc_09657edc398aa_0</div><pre class="code">const result = await tools.pwsh({ command: &quot;node -e &#x27;const fs=require(\&quot;fs\&quot;),vm=require(\&quot;vm\&quot;);const html=fs.readFileSync(\&quot;index.html\&quot;,\&quot;utf8\&quot;);const match=html.match(/&lt;script&gt;([\\s\\S]*)&lt;\\/script&gt;/);new vm.Script(match[1],{filename:\&quot;embedded.js\&quot;});console.log(\&quot;SCRIPT_OK\&quot;);console.log(\&quot;BOM=\&quot;+fs.readFileSync(\&quot;index.html\&quot;).subarray(0,3).toString(\&quot;hex\&quot;));console.log(\&quot;hasCanvas=\&quot;+/&lt;canvas class=\\\&quot;ink-canvas\\\&quot;/.test(html));console.log(\&quot;hasRules=\&quot;+(/ruleDraw/.test(html)&amp;&amp;/sealStamp/.test(html)&amp;&amp;/tilePressWipe/.test(html)));console.log(\&quot;externalAssets=\&quot;+(/&lt;script[^&gt;]+src|&lt;link|&lt;img/.test(html)?\&quot;yes\&quot;:\&quot;no\&quot;))&#x27;&quot;, description: &quot;Validate paper ink script and assets&quot;, workdir: &quot;D:\\新建文件夹&quot;, timeoutMs: 120000 });
 console.log(JSON.stringify(result, null, 2));</pre></details>
 <div class="who">AI</div><div class="bubble ai">Syntax, BOM, canvas, animation-hook, and no-external-asset checks passed. I’m running a headless Chrome regression for the preserved behavior plus the new paper-and-ink interaction hooks.</div>
-<div class="callline">Tool call · <code>run_code</code> — Create paper presentation regression suite <span class="omit">(file write; content omitted)</span></div>
+<div class="callline">Tool call · <code>run_code</code> — Create paper presentation regression suite</div>
 <div class="who">AI</div><div class="bubble ai">The presentation-regression harness is ready. I’m running it now against the redesigned page to confirm all existing behavior plus the new paper-and-ink motion and keyboard hooks.</div>
 <details class="call"><summary>Tool call · <code>run_code</code> — Run paper presentation regression checks</summary><div class="cid">sg_call_2252faf6de5d2_0|fc_2252faf6de5d2_0</div><pre class="code">const result = await tools.pwsh({ command: &quot;node \&quot;C:\\Users\\JH Z\\AppData\\Local\\Temp\\pragmatic-rephraser-paper-test.cjs\&quot;&quot;, description: &quot;Run paper presentation regression checks&quot;, workdir: &quot;D:\\新建文件夹&quot;, timeoutMs: 120000 });
 console.log(JSON.stringify(result, null, 2));</pre></details>
@@ -625,65 +624,65 @@ console.log(JSON.stringify(result, null, 2));</pre></details>
 const b = await tools.read({ file_path: &quot;index.html&quot;, offset: 824, limit: 22 });
 console.log(JSON.stringify({ a, b }, null, 2));</pre></details>
 <div class="who">AI</div><div class="bubble ai">Now applying the edits one at a time, each small. **Edit 1/14 — CSS additions** (font-system variables, lang button, model controls, detection panel styles):</div>
-<div class="callline">Tool call · <code>run_code</code> — Apply CSS font and component additions <span class="omit">(file write; content omitted)</span></div>
+<div class="callline">Tool call · <code>run_code</code> — Apply CSS font and component additions</div>
 <div class="who">AI</div><div class="bubble ai">**Edit 2/14 — language toggle button in the header:**</div>
-<div class="callline">Tool call · <code>run_code</code> — Add language toggle button <span class="omit">(file write; content omitted)</span></div>
+<div class="callline">Tool call · <code>run_code</code> — Add language toggle button</div>
 <div class="who">AI</div><div class="bubble ai">**Edit 3/14 — AI-plausibility panel markup under the input:**</div>
-<div class="callline">Tool call · <code>run_code</code> — Insert AI plausibility panel <span class="omit">(file write; content omitted)</span></div>
+<div class="callline">Tool call · <code>run_code</code> — Insert AI plausibility panel</div>
 <div class="who">AI</div><div class="bubble ai">Reading the exact settings markup before editing it:</div>
 <details class="call"><summary>Tool call · <code>run_code</code> — Read settings panel markup</summary><div class="cid">call_9bd58229e6a6456b868afb95</div><pre class="code">const result = await tools.read({ file_path: &quot;index.html&quot;, offset: 596, limit: 50 });
 console.log(JSON.stringify(result, null, 2));</pre></details>
 <details class="call"><summary>Tool call · <code>run_code</code> — Read remaining settings markup</summary><div class="cid">call_c91058ed14044bd5b5047f89</div><pre class="code">const result = await tools.read({ file_path: &quot;index.html&quot;, offset: 646, limit: 44 });
 console.log(JSON.stringify(result, null, 2));</pre></details>
 <div class="who">AI</div><div class="bubble ai">**Edit 4/14 — settings: Custom provider option + model-select row with “Fetch models”:**</div>
-<div class="callline">Tool call · <code>run_code</code> — Add Custom provider and model management row <span class="omit">(file write; content omitted)</span></div>
+<div class="callline">Tool call · <code>run_code</code> — Add Custom provider and model management row</div>
 <div class="who">AI</div><div class="bubble ai">**Edit 5/14 — I18N core (full zh/en dictionary + language state + label maps):**</div>
-<div class="callline">Tool call · <code>run_code</code> — Insert I18N dictionary and language helpers <span class="omit">(file write; content omitted)</span></div>
+<div class="callline">Tool call · <code>run_code</code> — Insert I18N dictionary and language helpers</div>
 <div class="who">AI</div><div class="bubble ai">**Edit 6/14 — localize the mode-header labels:**</div>
-<div class="callline">Tool call · <code>run_code</code> — Localize mode header labels <span class="omit">(file write; content omitted)</span></div>
+<div class="callline">Tool call · <code>run_code</code> — Localize mode header labels</div>
 <div class="who">AI</div><div class="bubble ai">**Edit 7/14 — refresh provider presets with current model lists + Custom:**</div>
-<div class="callline">Tool call · <code>run_code</code> — Refresh provider model lists <span class="omit">(file write; content omitted)</span></div>
+<div class="callline">Tool call · <code>run_code</code> — Refresh provider model lists</div>
 <div class="who">AI</div><div class="bubble ai">**Edit 8/14 — model-aware settings panel + model populator:**</div>
-<div class="callline">Tool call · <code>run_code</code> — Make settings panel model-aware <span class="omit">(file write; content omitted)</span></div>
+<div class="callline">Tool call · <code>run_code</code> — Make settings panel model-aware</div>
 <div class="who">AI</div><div class="bubble ai">**Edit 9/14 — model preset logic, `/models` fetch, and the AI-plausibility detector:**</div>
-<div class="callline">Tool call · <code>run_code</code> — Add model fetch and AI detector logic <span class="omit">(file write; content omitted)</span></div>
+<div class="callline">Tool call · <code>run_code</code> — Add model fetch and AI detector logic</div>
 <div class="who">AI</div><div class="bubble ai">**Edit 10/14 — add the model-select DOM reference:**</div>
-<div class="callline">Tool call · <code>run_code</code> — Add model select DOM reference <span class="omit">(file write; content omitted)</span></div>
+<div class="callline">Tool call · <code>run_code</code> — Add model select DOM reference</div>
 <div class="who">AI</div><div class="bubble ai">**Edit 11/14 — `callChatCompletion` with logprobs capture and retry:**</div>
-<div class="callline">Tool call · <code>run_code</code> — Add logprobs capture and fallback retry <span class="omit">(file write; content omitted)</span></div>
+<div class="callline">Tool call · <code>run_code</code> — Add logprobs capture and fallback retry</div>
 <div class="who">AI</div><div class="bubble ai">**Edit 12/14 — localized LLM prompt + result bundle with logprobs:**</div>
-<div class="callline">Tool call · <code>run_code</code> — Localize LLM prompt and bundle logprobs <span class="omit">(file write; content omitted)</span></div>
+<div class="callline">Tool call · <code>run_code</code> — Localize LLM prompt and bundle logprobs</div>
 <div class="who">AI</div><div class="bubble ai">**Edit 13/14 — analyze() with detection integration and localized toasts:**</div>
-<div class="callline">Tool call · <code>run_code</code> — Integrate detection into analyze <span class="omit">(file write; content omitted)</span></div>
+<div class="callline">Tool call · <code>run_code</code> — Integrate detection into analyze</div>
 <div class="who">AI</div><div class="bubble ai">Reading the render/readout block to patch it precisely:</div>
 <details class="call"><summary>Tool call · <code>run_code</code> — Read readout and render functions</summary><div class="cid">call_51a48348c6384eb584e097c0</div><pre class="code">const r = await tools.read({ file_path: &quot;index.html&quot;, offset: 806, limit: 32 });
 console.log(JSON.stringify(r, null, 2));</pre></details>
 <details class="call"><summary>Tool call · <code>run_code</code> — Locate remaining render and event anchors</summary><div class="cid">call_9dc143bd9fad494dbb5b9a35</div><pre class="code">const result = await tools.grep({ pattern: &quot;function renderExamples|function renderEmpty|function updateLiveReadout|function testConnection|function copyText|function fallbackCopy|function clearInput|saveSettingsButton|providerSelect.addEventListener|modelSelect|input.value = examples|return \\(strategies\\[type\\]|function strategyFor|closeSettingsButton|langButton&quot;, path: &quot;index.html&quot; });
 console.log(JSON.stringify(result, null, 2));</pre></details>
 <div class="who">AI</div><div class="bubble ai">Now applying the remaining patches in small groups. **Group A: localized readout + English strategy/explanation tables:**</div>
-<div class="callline">Tool call · <code>run_code</code> — Localize readout and add English strategy tables <span class="omit">(file write; content omitted)</span></div>
+<div class="callline">Tool call · <code>run_code</code> — Localize readout and add English strategy tables</div>
 <div class="who">AI</div><div class="bubble ai">Group A applied. **Group B: English-aware strategy return + example-type translation:**</div>
-<div class="callline">Tool call · <code>run_code</code> — Localize strategy labels and example types <span class="omit">(file write; content omitted)</span></div>
+<div class="callline">Tool call · <code>run_code</code> — Localize strategy labels and example types</div>
 <div class="who">AI</div><div class="bubble ai">One edit in the pair failed — checking the file’s current state around both anchor points to apply the exact match:</div>
 <details class="call"><summary>Tool call · <code>run_code</code> — Re-check strategy and example-type anchors</summary><div class="cid">call_7ff364dbcedd4af0bd4b2ad0</div><pre class="code">const g = await tools.grep({ pattern: &quot;strategies\\[type\\]|example-type&quot;, path: &quot;index.html&quot; });
 console.log(JSON.stringify(g, null, 2));</pre></details>
 <div class="who">AI</div><div class="bubble ai">The strategy edit already landed (visible in line 967); only the example-type edit failed on escaping. Applying it with an escape-free anchor, plus the localized empty state and copy-toast patch:</div>
-<div class="callline">Tool call · <code>run_code</code> — Localize example types, empty state, copy toast <span class="omit">(file write; content omitted)</span></div>
+<div class="callline">Tool call · <code>run_code</code> — Localize example types, empty state, copy toast</div>
 <div class="who">AI</div><div class="bubble ai">Example types, empty state, and toast patches landed. **Now localizing the result renderer (badge, evidence, tone names, strategies, explanations, chips, copy labels):**</div>
-<div class="callline">Tool call · <code>run_code</code> — Localize result card rendering <span class="omit">(file write; content omitted)</span></div>
+<div class="callline">Tool call · <code>run_code</code> — Localize result card rendering</div>
 <div class="who">AI</div><div class="bubble ai">**Localizing remaining toasts, adding annotation-toast keys, and fixing connection test to use the new result bundle:**</div>
-<div class="callline">Tool call · <code>run_code</code> — Localize toasts and connection test <span class="omit">(file write; content omitted)</span></div>
+<div class="callline">Tool call · <code>run_code</code> — Localize toasts and connection test</div>
 <div class="who">AI</div><div class="bubble ai">**Final JS patch — language/model/fetch listeners and boot-time language init:**</div>
-<div class="callline">Tool call · <code>run_code</code> — Add listeners and boot language init <span class="omit">(file write; content omitted)</span></div>
+<div class="callline">Tool call · <code>run_code</code> — Add listeners and boot language init</div>
 <div class="who">AI</div><div class="bubble ai">All patches applied. Verifying syntax, BOM, and no external assets:</div>
 <details class="call"><summary>Tool call · <code>run_code</code> — Validate finalized script integrity</summary><div class="cid">call_7f48f4adea8a49f7be3147bc</div><pre class="code">const result = await tools.pwsh({ command: &quot;node -e &#x27;const fs=require(\&quot;fs\&quot;),vm=require(\&quot;vm\&quot;);const html=fs.readFileSync(\&quot;index.html\&quot;,\&quot;utf8\&quot;);const match=html.match(/&lt;script&gt;([\\s\\S]*)&lt;\\/script&gt;/);try{new vm.Script(match[1],{filename:\&quot;embedded.js\&quot;});console.log(\&quot;SCRIPT_OK\&quot;)}catch(e){console.error(e.stack);process.exitCode=1};console.log(\&quot;SIZE=\&quot;+fs.readFileSync(\&quot;index.html\&quot;).length);console.log(\&quot;BOM=\&quot;+fs.readFileSync(\&quot;index.html\&quot;).subarray(0,3).toString(\&quot;hex\&quot;));console.log(\&quot;extRefs=\&quot;+(/&lt;script[^&gt;]+src|&lt;link|&lt;img/.test(html)?\&quot;yes\&quot;:\&quot;no\&quot;));console.log(\&quot;langBtn=\&quot;+html.includes(\&quot;id=\\\&quot;langButton\\\&quot;\&quot;));console.log(\&quot;detectUI=\&quot;+html.includes(\&quot;detectionPanel\&quot;));console.log(\&quot;modelSel=\&quot;+html.includes(\&quot;modelSelect\&quot;))&#x27;&quot;, description: &quot;Validate finalized script integrity&quot;, workdir: &quot;D:\\新建文件夹&quot;, timeoutMs: 120000 });
 console.log(JSON.stringify(result, null, 2));</pre></details>
 <div class="who">AI</div><div class="bubble ai">Finalized file validated. Writing the headless-Chrome regression for the new features (I18N, detection, model management, fallback, shortcuts):</div>
-<div class="callline">Tool call · <code>run_code</code> — Create final regression harness <span class="omit">(file write; content omitted)</span></div>
+<div class="callline">Tool call · <code>run_code</code> — Create final regression harness</div>
 <details class="call"><summary>Tool call · <code>run_code</code> — Run final regression assertions</summary><div class="cid">call_03338a5281ec4053a5e1039d</div><pre class="code">const result = await tools.pwsh({ command: &quot;node \&quot;C:\\Users\\JH Z\\AppData\\Local\\Temp\\pragma-final-test.cjs\&quot;&quot;, description: &quot;Run final regression assertions&quot;, workdir: &quot;D:\\新建文件夹&quot;, timeoutMs: 120000 });
 console.log(JSON.stringify(result, null, 2));</pre></details>
 <div class="who">AI</div><div class="bubble ai">One test expectation was wrong (my template sentence gave 2 repeated heads, not 4 — the detector itself is fine). Re-running with a properly template-like input:</div>
-<div class="callline">Tool call · <code>run_code</code> — Create corrected detection regression <span class="omit">(file write; content omitted)</span></div>
+<div class="callline">Tool call · <code>run_code</code> — Create corrected detection regression</div>
 <details class="call"><summary>Tool call · <code>run_code</code> — Run corrected detection regression</summary><div class="cid">call_df3c8d82f9f64a44b08997ca</div><pre class="code">const result = await tools.pwsh({ command: &quot;node \&quot;C:\\Users\\JH Z\\AppData\\Local\\Temp\\pragma-final2-test.cjs\&quot;&quot;, description: &quot;Run corrected detection regression&quot;, workdir: &quot;D:\\新建文件夹&quot;, timeoutMs: 120000 });
 console.log(JSON.stringify(result, null, 2));</pre></details>
 <div class="who">AI</div><div class="bubble ai">All green. Cleaning up the temp harnesses and rendering final desktop/mobile previews:</div>
