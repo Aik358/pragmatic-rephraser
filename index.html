@@ -801,7 +801,7 @@ async function run({instant=false,forceOffline=false}={}){
     latest={...result,input,source:ai&&!fallback?'ai':'rule',fallback};
     $('composer').classList.remove('is-pressing');buildProofs(latest,!instant);
     status('complete',latest.source==='ai'?t('doneAi'):t('doneRule'));
-    if(!instant){const r=$('results').getBoundingClientRect();if(r.top>innerHeight*.82)$('results').scrollIntoView({behavior:motionEnabled?'smooth':'instant',block:'start'});}
+    if(!instant){$('results').scrollIntoView({behavior:motionEnabled?'smooth':'instant',block:'start'});}
   }catch(e){if(id!==runId)return;status('idle',t('genUnfinished'));$('errmsg').textContent='无法完成改写：'+e.message;$('errmsg').hidden=false;hideResults();}
   finally{if(id===runId){busy(false);activeRun=null;$('composer').classList.remove('is-pressing');}}
 }
